@@ -1,0 +1,58 @@
+@use '/src/assets/styles/main' as *;
+
+.wrapper{
+    width: 1140px;
+    margin: 0 auto;
+    padding: 116px 0 85px;
+    @media (max-width: 760px) {
+        width: 700px;
+        padding: 50px 40px 40px;
+      }
+    @media (max-width: 480px) {
+        width: 300px;
+        padding: 0 15px 15px;
+      }
+}
+.aboutUs{
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 480px) {
+        flex-direction: column;
+    }
+}
+.aboutText{
+    width: 585px;
+    color: #FFF;
+    font-family: $font-family;
+    font-size: 24px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media (max-width: 760px) {
+        width: 500px;
+        font-size: 24px;
+    }
+    @media (max-width: 480px) {
+        width: 300px;
+        font-size: 16px;
+    }
+    @media (max-width: 320px) {
+        width: 300px;
+        font-size: 14px;
+    }
+}
+.aboutIcon{
+    @media (max-width: 480px) {
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+.img{
+    @media (max-width: 480px) {
+        width: 120px;
+        height: 111px;
+    }
+
+}

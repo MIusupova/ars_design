@@ -1,0 +1,58 @@
+@use '/src/assets/styles/main' as *;
+
+
+.wrapper{
+    height: 93px;
+    width: 100%;
+    background: #131313;
+    display: flex;
+    align-items: center;
+    @media (max-width: 480px) {
+        height: 53px;
+      }
+   
+}
+.rectangleInfo{
+    height: 46px;
+    display: flex;
+    align-items: center;
+    font-family: $font-family;
+    margin: 0 auto;
+}
+
+
+.title{
+    margin-right: 0.5rem;
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    @media (max-width: 760px) {
+        font-size: 20px;
+      }
+    @media (max-width: 480px) {
+        font-size: 16px;
+      }
+    @media (max-width: 320px) {
+        font-size: 12px;
+      }
+}
+.subtitle{
+    color: #FFF;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 5.58px;
+    @media (max-width: 760px) {
+        font-size: 30px;
+      }
+    @media (max-width: 480px) {
+        font-size: 20px;
+      }
+    @media (max-width: 320px) {
+        font-size: 16px;
+      }
+   
+}

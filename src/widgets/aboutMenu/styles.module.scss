@@ -1,0 +1,50 @@
+@use '/src/assets/styles/main' as *;
+
+.aboutMenu {
+    display: flex;
+    justify-content: center;
+}
+  
+.menuList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.menuItem {
+    position: relative;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+    @media (max-width: 760px) {
+        padding: 0 10px;
+        font-size: 15px;
+      }
+  
+    &:hover {
+      color: #55b055;
+    }
+  
+    .line {
+      position: absolute;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background-color: #55b055;
+      border-radius: 2px;
+      transition: height 0.3s ease;
+    }
+}
+  
+.active {
+    color: #55b055;
+  
+    .line {
+      height: 100%;
+    }
+  }
+  
