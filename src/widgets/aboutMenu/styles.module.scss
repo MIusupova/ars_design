@@ -3,6 +3,9 @@
 .aboutMenu {
     display: flex;
     justify-content: center;
+    @media (max-width: 320px) {
+      padding-top: 20px;
+    }
 }
   
 .menuList {

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/icons/logo.svg';
+import subtract from '../../assets/icons/Subtract.svg';
 import styles from './styles.module.scss';
 
 const Header = () => (
@@ -19,7 +20,7 @@ const Header = () => (
 
     <div className={styles.arrowWrapper}>
       <Link to="/">
-        <img className={styles.str} src="/icons/Subtract.svg" alt="Arrow" />
+        <img className={styles.str} src={subtract} alt="Arrow" />
       </Link>
     </div>
   </div>

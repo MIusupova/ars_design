@@ -1,16 +1,16 @@
 @use '/src/assets/styles/main' as *;
 
 .wrapper{
-    width: 1140px;
+    width: 1440px;
     margin: 0 auto;
     padding: 116px 0 85px;
     @media (max-width: 760px) {
-        width: 700px;
+        width: 600px;
         padding: 50px 40px 40px;
       }
     @media (max-width: 480px) {
         width: 300px;
-        padding: 0 15px 15px;
+        padding: 0 20px 15px;
       }
 }
 .aboutUs{
@@ -39,7 +39,7 @@
     }
     @media (max-width: 320px) {
         width: 300px;
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 .aboutIcon{

@@ -13,6 +13,10 @@
         display: flex;
         justify-content: center;
       }
+    @media (max-width: 320px) {
+        padding: 35px 0;
+      
+      }
 }
 .section {
     width: 836px;
@@ -26,10 +30,19 @@
         flex-direction: column;
         width: 400px;
     }
+    @media (max-width: 320px) {
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        font-size: 14px;
+    }
   }
   
 .infoBlock {
     width: 390px;
+    @media (max-width: 320px) {
+        width: 280px;
+    }
 }
 .infoItem {
     background: #131313;
@@ -40,14 +53,25 @@
     display: flex;
     align-items: center;
     color: #FFF;
+    @media (max-width: 320px) {
+        height: 32px;
+    }
 }
 
 .img{
     padding: 0 25px;
+    @media (max-width: 320px) {
+        padding: 0 15px;
+        width: 20px;
+        height: 20px;
+    }
 }
   
 .formBlock {
     width: 390px;
+    @media (max-width: 320px) {
+        width: 280px;
+    }
 }
 .input {
     width: 382px;
@@ -57,11 +81,19 @@
     font-size: 24px;
     font-weight: 400;
     margin-bottom: 20px;
+    @media (max-width: 320px) {
+        width: 272px;
+        font-size: 14px;
+        height: 32px;
+    }
 }
 .input::placeholder {
     padding-left: 17px;
   }
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 52px;
     width: 100%;
     background: #55B055;
@@ -70,5 +102,9 @@
     font-family: $font-family;
     font-size: 24px;
     font-weight: 700;
+    @media (max-width: 320px) {
+        height: 32px;
+        font-size: 14px;
+    }
 }
   
