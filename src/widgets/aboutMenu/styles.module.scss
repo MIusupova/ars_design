@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     @media (max-width: 480px) {
-      padding-top: 20px;
+      padding-top: 10px;
     }
 }
   
@@ -25,7 +25,10 @@
     transition: color 0.3s ease;
     @media (max-width: 760px) {
         padding: 0 10px;
-        font-size: 15px;
+        font-size: 16px;
+      }
+      @media (max-width: 480px) {
+        font-size: 14px;
       }
   
     &:hover {
