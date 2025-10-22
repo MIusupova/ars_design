@@ -10,6 +10,7 @@
         justify-content: center;
       }
     @media (max-width: 480px) {
+        padding: 35px 0;
         display: flex;
         justify-content: center;
       }
@@ -30,6 +31,11 @@
         flex-direction: column;
         width: 400px;
     }
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        width: 320px;
+        font-size: 18px;}
     @media (max-width: 320px) {
         display: flex;
         flex-direction: column;
@@ -40,6 +46,10 @@
   
 .infoBlock {
     width: 390px;
+    @media (max-width: 480px) {
+        width: 320px;
+        font-size: 18px;}
+
     @media (max-width: 320px) {
         width: 280px;
     }
@@ -53,14 +63,14 @@
     display: flex;
     align-items: center;
     color: #FFF;
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
         height: 32px;
     }
 }
 
 .img{
     padding: 0 25px;
-    @media (max-width: 320px) {
+    @media (max-width: 480px) {
         padding: 0 15px;
         width: 20px;
         height: 20px;
@@ -69,6 +79,9 @@
   
 .formBlock {
     width: 390px;
+    @media (max-width: 480px) {
+        width: 320px;
+    }
     @media (max-width: 320px) {
         width: 280px;
     }
@@ -81,6 +94,11 @@
     font-size: 24px;
     font-weight: 400;
     margin-bottom: 20px;
+    @media (max-width: 480px) {
+        width: 311px;
+        font-size: 18px;
+        height: 32px;
+    }
     @media (max-width: 320px) {
         width: 272px;
         font-size: 14px;
@@ -102,6 +120,10 @@
     font-family: $font-family;
     font-size: 24px;
     font-weight: 700;
+    @media (max-width: 480px) {
+        height: 32px;
+        font-size: 18px;
+    }
     @media (max-width: 320px) {
         height: 32px;
         font-size: 14px;
