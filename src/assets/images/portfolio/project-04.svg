@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Placeholder">
+  <defs>
+    <linearGradient id="p4f" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2a2a"/>
+      <stop offset="1" stop-color="#121212"/>
+    </linearGradient>
+    <pattern id="p4grid" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="#232323"/>
+      <rect x="14" y="14" width="92" height="92" fill="#0d0d0d"/>
+      <rect x="14" y="14" width="92" height="30" fill="#191919"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#p4f)"/>
+  <rect x="120" y="80" width="960" height="600" fill="url(#p4grid)"/>
+  <rect x="120" y="80" width="960" height="600" fill="none" stroke="#3d3d3d" stroke-width="4"/>
+  <rect x="360" y="80" width="120" height="600" fill="#55b055" opacity="0.2"/>
+  <rect x="720" y="80" width="120" height="600" fill="#55b055" opacity="0.12"/>
+  <rect x="120" y="680" width="960" height="14" fill="#55b055"/>
+  <rect y="694" width="1200" height="106" fill="#161616"/>
+  <g stroke="#2c2c2c" stroke-width="2">
+    <line x1="0" y1="740" x2="1200" y2="740"/>
+  </g>
+</svg>

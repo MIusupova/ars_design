@@ -1,6 +1,27 @@
 @use '/src/assets/styles/main' as *;
-.wrapper{
+
+.wrapper {
+    width: 100%;
     max-width: 1440px;
-    background: #202020; 
+    margin: 0 auto;
+    overflow-x: hidden;
+    background: #202020;
 }
 
+// Отступ под липкую шапку, чтобы заголовок секции не уезжал под неё при скролле.
+.section {
+    scroll-margin-top: 72px;
+
+    @include xl {
+        scroll-margin-top: 64px;
+    }
+    @include lg {
+        scroll-margin-top: 60px;
+    }
+    @include md {
+        scroll-margin-top: 56px;
+    }
+    @include sm {
+        scroll-margin-top: 52px;
+    }
+}

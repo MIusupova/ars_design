@@ -1,58 +1,91 @@
 @use '/src/assets/styles/main' as *;
 
-.wrapper{
-    width: 1440px;
+.wrapper {
+    width: 100%;
+    max-width: 1440px;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 116px 0 85px;
-    @media (max-width: 760px) {
-        width: 600px;
-        padding: 50px 40px 40px;
-      }
-    @media (max-width: 480px) {
-        width: 300px;
-        padding: 0 20px 15px;
-      }
-}
-.aboutUs{
-    display: flex;
-    justify-content: space-between;
-    @media (max-width: 480px) {
-        flex-direction: column;
+    padding: 116px 40px 85px;
+
+    @include xl {
+        padding: 80px 32px 60px;
+    }
+    @include lg {
+        padding: 60px 24px 50px;
+    }
+    @include md {
+        padding: 48px 20px 40px;
+    }
+    @include sm {
+        padding: 32px 16px 28px;
     }
 }
-.aboutText{
-    width: 585px;
+
+.aboutUs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+
+    @include xl {
+        gap: 56px;
+    }
+    @include lg {
+        gap: 36px;
+    }
+    @include md {
+        flex-direction: column;
+        gap: 24px;
+    }
+    @include sm {
+        gap: 18px;
+    }
+}
+
+.aboutIcon {
+    flex-shrink: 0;
+}
+
+.img {
+    display: block;
+    width: 232px;
+    height: auto;
+
+    @include xl {
+        width: 200px;
+    }
+    @include lg {
+        width: 170px;
+    }
+    @include md {
+        width: 140px;
+    }
+    @include sm {
+        width: 110px;
+    }
+}
+
+.aboutText {
+    width: 100%;
+    max-width: 585px;
     color: #FFF;
     font-family: $font-family;
     font-size: 24px;
     font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @media (max-width: 760px) {
-        width: 500px;
-        font-size: 24px;
+    line-height: 1.5;
+
+    @include xl {
+        font-size: 22px;
     }
-    @media (max-width: 480px) {
-        width: 300px;
+    @include lg {
+        font-size: 19px;
+    }
+    @include md {
+        max-width: 100%;
+        font-size: 17px;
+        text-align: center;
+    }
+    @include sm {
         font-size: 14px;
     }
-    @media (max-width: 320px) {
-        width: 300px;
-        font-size: 12px;
-    }
-}
-.aboutIcon{
-    @media (max-width: 480px) {
-        display: flex;
-        justify-content: center;
-    }
-    
-}
-.img{
-    @media (max-width: 480px) {
-        width: 120px;
-        height: 111px;
-    }
-
 }

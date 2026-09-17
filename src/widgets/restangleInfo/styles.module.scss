@@ -1,58 +1,82 @@
 @use '/src/assets/styles/main' as *;
 
-
-.wrapper{
+.wrapper {
     height: 93px;
     width: 100%;
     background: #131313;
     display: flex;
     align-items: center;
-    @media (max-width: 480px) {
-        height: 53px;
-      }
-   
+
+    @include xl {
+        height: 82px;
+    }
+    @include lg {
+        height: 72px;
+    }
+    @include md {
+        height: 62px;
+    }
+    @include sm {
+        height: 48px;
+    }
 }
-.rectangleInfo{
-    height: 46px;
+
+.rectangleInfo {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    justify-content: center;
     font-family: $font-family;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
-
-.title{
+.title {
     margin-right: 0.5rem;
     color: #FFF;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    @media (max-width: 760px) {
+    white-space: nowrap;
+
+    @include xl {
+        font-size: 22px;
+    }
+    @include lg {
         font-size: 20px;
-      }
-    @media (max-width: 480px) {
-        font-size: 16px;
-      }
-    @media (max-width: 320px) {
-        font-size: 12px;
-      }
+    }
+    @include md {
+        font-size: 17px;
+    }
+    @include sm {
+        font-size: 13px;
+    }
 }
-.subtitle{
+
+.subtitle {
     color: #FFF;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 5.58px;
-    @media (max-width: 760px) {
-        font-size: 30px;
-      }
-    @media (max-width: 480px) {
-        font-size: 20px;
-      }
-    @media (max-width: 320px) {
+    white-space: nowrap;
+
+    @include xl {
+        font-size: 32px;
+        letter-spacing: 4.5px;
+    }
+    @include lg {
+        font-size: 28px;
+        letter-spacing: 3.8px;
+    }
+    @include md {
+        font-size: 23px;
+        letter-spacing: 3px;
+    }
+    @include sm {
         font-size: 16px;
-      }
-   
+        letter-spacing: 2px;
+    }
 }

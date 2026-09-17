@@ -1,0 +1,280 @@
+@use '/src/assets/styles/main' as *;
+
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #131313;
+    border-bottom: 1px solid #262626;
+    font-family: $font-family;
+}
+
+.inner {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: 72px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    @include xl {
+        height: 64px;
+        gap: 18px;
+        padding: 0 32px;
+    }
+    @include lg {
+        height: 60px;
+        gap: 14px;
+        padding: 0 24px;
+    }
+    @include md {
+        height: 56px;
+        padding: 0 20px;
+    }
+    @include sm {
+        height: 52px;
+        padding: 0 16px;
+    }
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.brandLogo {
+    display: block;
+    width: auto;
+    height: 40px;
+
+    @include xl {
+        height: 36px;
+    }
+    @include lg {
+        height: 32px;
+    }
+    @include md {
+        height: 30px;
+    }
+    @include sm {
+        height: 26px;
+    }
+}
+
+.nav {
+    @include md {
+        display: none;
+    }
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include xl {
+        gap: 22px;
+    }
+    @include lg {
+        gap: 14px;
+    }
+}
+
+.link {
+    position: relative;
+    padding: 6px 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 400;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    @include xl {
+        font-size: 17px;
+    }
+    @include lg {
+        font-size: 15px;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: #55b055;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        color: #55b055;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+    }
+}
+
+.active {
+    color: #55b055;
+}
+
+// Подчёркивание — только у ссылок в баре; в бургер-панели у .panelLink нет ::after.
+.link.active::after {
+    transform: scaleX(1);
+}
+
+.lang {
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+
+    @include lg {
+        font-size: 14px;
+    }
+    @include md {
+        display: none;
+    }
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    cursor: pointer;
+
+    @include md {
+        display: flex;
+    }
+    @include sm {
+        width: 28px;
+        height: 28px;
+        gap: 4px;
+    }
+}
+
+.burgerLine {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burgerOpen {
+    .burgerLine:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .burgerLine:nth-child(2) {
+        opacity: 0;
+    }
+    .burgerLine:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @include sm {
+        .burgerLine:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+        .burgerLine:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+    }
+}
+
+.panel {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    background: #131313;
+    border-top: 1px solid #262626;
+    transition: max-height 0.3s ease;
+
+    @include md {
+        display: block;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+.panelOpen {
+    max-height: 420px;
+}
+
+.panelList {
+    list-style: none;
+    margin: 0;
+    padding: 8px 20px 16px;
+
+    @include sm {
+        padding: 6px 16px 12px;
+    }
+}
+
+.panelLink {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #55b055;
+    }
+
+    @include sm {
+        padding: 10px 0;
+        font-size: 15px;
+    }
+}
+
+.panelLang {
+    display: block;
+    padding: 14px 0 4px;
+    color: #8f8f8f;
+    font-size: 15px;
+
+    @include sm {
+        font-size: 13px;
+    }
+}

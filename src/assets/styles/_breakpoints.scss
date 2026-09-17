@@ -1,0 +1,29 @@
+// Единые брейкпоинты проекта
+$bp-xl: 1200px !default;
+$bp-lg: 860px !default;
+$bp-md: 780px !default;
+$bp-sm: 420px !default;
+
+@mixin xl {
+  @media (max-width: $bp-xl) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: $bp-sm) {
+    @content;
+  }
+}

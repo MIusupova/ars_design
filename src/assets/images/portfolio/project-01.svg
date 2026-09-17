@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Placeholder">
+  <defs>
+    <linearGradient id="p1sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2b2b"/>
+      <stop offset="1" stop-color="#151515"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#p1sky)"/>
+  <circle cx="930" cy="180" r="70" fill="#55b055" opacity="0.18"/>
+  <g fill="#3a3a3a">
+    <rect x="120" y="300" width="700" height="90"/>
+    <rect x="180" y="430" width="640" height="90"/>
+    <rect x="120" y="560" width="760" height="90"/>
+  </g>
+  <g fill="#0f0f0f">
+    <rect x="140" y="320" width="300" height="50"/>
+    <rect x="470" y="320" width="330" height="50"/>
+    <rect x="200" y="450" width="590" height="50"/>
+    <rect x="140" y="580" width="400" height="50"/>
+    <rect x="570" y="580" width="290" height="50"/>
+  </g>
+  <rect x="120" y="650" width="760" height="8" fill="#55b055"/>
+  <g stroke="#4a4a4a" stroke-width="2">
+    <line x1="120" y1="300" x2="120" y2="658"/>
+    <line x1="880" y1="560" x2="880" y2="658"/>
+  </g>
+  <rect y="690" width="1200" height="110" fill="#111"/>
+</svg>

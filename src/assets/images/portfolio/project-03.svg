@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Placeholder">
+  <defs>
+    <linearGradient id="p3w" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e2e2e"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#p3w)"/>
+  <rect y="620" width="1200" height="180" fill="#1b1b1b"/>
+  <g fill="#0e0e0e">
+    <path d="M200 620V320a100 100 0 0 1 200 0v300z"/>
+    <path d="M500 620V320a100 100 0 0 1 200 0v300z"/>
+    <path d="M800 620V320a100 100 0 0 1 200 0v300z"/>
+  </g>
+  <g fill="#55b055" opacity="0.25">
+    <path d="M230 620V330a70 70 0 0 1 140 0v290z"/>
+  </g>
+  <g stroke="#454545" stroke-width="3" fill="none">
+    <path d="M200 620V320a100 100 0 0 1 200 0v300"/>
+    <path d="M500 620V320a100 100 0 0 1 200 0v300"/>
+    <path d="M800 620V320a100 100 0 0 1 200 0v300"/>
+  </g>
+  <rect x="180" y="600" width="840" height="20" fill="#2a2a2a"/>
+  <g stroke="#333" stroke-width="2">
+    <line x1="0" y1="700" x2="1200" y2="700"/>
+    <line x1="0" y1="750" x2="1200" y2="750"/>
+  </g>
+</svg>

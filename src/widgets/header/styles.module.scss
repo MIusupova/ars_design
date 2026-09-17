@@ -1,110 +1,143 @@
 @use '/src/assets/styles/main' as *;
 
-.wrapper{
+.wrapper {
     z-index: 1;
-    background: black url('../../../public/images/header.webp') no-repeat center/cover
-    
+    background: black url('../../../public/images/header.webp') no-repeat center/cover;
 }
-.title{
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 140px;
+
+    @include xl {
+        padding-top: 110px;
+    }
+    @include lg {
+        padding-top: 85px;
+    }
+    @include md {
+        padding-top: 65px;
+    }
+    @include sm {
+        padding-top: 40px;
+    }
+}
+
+.img {
+    display: block;
+    width: 232px;
+    height: auto;
+
+    @include xl {
+        width: 200px;
+    }
+    @include lg {
+        width: 170px;
+    }
+    @include md {
+        width: 140px;
+    }
+    @include sm {
+        width: 110px;
+    }
+}
+
+.title {
     height: 254px;
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (max-width: 760px) {
+    padding: 0 20px;
+
+    @include xl {
+        height: 200px;
+    }
+    @include lg {
         height: 150px;
-      }
-      @media (max-width: 480px) {
-        height: 40px;
-      }
+    }
+    @include md {
+        height: 110px;
+    }
+    @include sm {
+        height: 70px;
+        padding: 0 16px;
+    }
 }
-.company{
+
+.company {
+    margin: 0;
     color: #FFF;
+    text-align: center;
     font-family: $font-family;
     font-size: 48px;
     font-weight: 700;
-    @media (max-width: 860px) {
+    line-height: 1.2;
+
+    @include xl {
+        font-size: 40px;
+    }
+    @include lg {
         font-size: 30px;
-      }
-    @media (max-width: 760px) {
-        font-size: 20px;
-      }
-      @media (max-width: 480px) {
-        font-size: 14px;
-      }
+    }
+    @include md {
+        font-size: 24px;
+    }
+    @include sm {
+        font-size: 16px;
+    }
+}
 
-}
-.logo{
-    display: flex;
-    justify-content: center;
-    padding-top: 102px;
-    @media (max-width: 760px) {
-        padding-top: 50px;
-      }
-    @media (max-width: 480px) {
-        padding-top: 0;
-      }
-
-}
-.str{
-    position: relative;
-    z-index: 10;
-    width: 61px; // или нужный размер
-    height: auto;
-    @media (max-width: 760px) {
-        width: 41px;
-      }
-    @media (max-width: 480px) {
-        width: 31px;
-      }
-    @media (max-width: 480px) {
-        width: 28px;
-      }
-}
 .arrowWrapper {
     display: flex;
     justify-content: center;
     padding: 121px 0;
-    @media (max-width: 760px) {
-        padding: 50px 0;
-      }
-    @media (max-width: 480px) {
-        padding: 20px 0;
-      }
 
+    @include xl {
+        padding: 90px 0;
+    }
+    @include lg {
+        padding: 65px 0;
+    }
+    @include md {
+        padding: 45px 0;
+    }
+    @include sm {
+        padding: 26px 0;
+    }
 }
-.header{
+
+.arrowButton {
     display: flex;
-    justify-content: space-around;
-    height: 37px;
-    padding-top: 70px;
-    @media (max-width: 780px) {
-        padding-top: 50px;
-      }
-    @media (max-width: 480px) {
-        padding-top: 30px;
-      }
+    padding: 8px;
+    border: none;
+    border-radius: 0;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 
-}
-.lang{
-    color: #FFF;
-    font-family: $font-family;
-    font-size: 24px;
-    font-weight: 400;
-    @media (max-width: 780px) {
-        font-size: 20px;
-      }
-    @media (max-width: 480px) {
-        font-size: 16px;
-      }
-    @media (max-width: 320px) {
-        font-size: 12px;
-      }
-} 
-.img{
-    @media (max-width: 480px) {
-        width: 120px;
-        height: 111px;
-      }
+    &:hover {
+        transform: translateY(4px);
+    }
 }
 
+.str {
+    position: relative;
+    z-index: 10;
+    display: block;
+    width: 61px;
+    height: auto;
 
+    @include xl {
+        width: 52px;
+    }
+    @include lg {
+        width: 44px;
+    }
+    @include md {
+        width: 36px;
+    }
+    @include sm {
+        width: 26px;
+    }
+}
