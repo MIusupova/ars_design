@@ -3,33 +3,33 @@ import styles from './styles.module.scss';
 const services = [
   {
     number: '01',
-    title: 'Architectural design',
-    text: 'Concept, working drawings and permits — a complete package for private houses and commercial buildings.',
+    title: 'Ремонт квартир и домов',
+    text: 'Полный ремонт помещений — от подготовки стен до финальной отделки.',
   },
   {
     number: '02',
-    title: 'Interior design',
-    text: 'Layouts, 3D visualisation and material selection, from the first sketch to the finished interior.',
+    title: 'Отделка стен и потолков',
+    text: 'Штукатурка, шпаклёвка, покраска и другие работы для аккуратного результата.',
   },
   {
     number: '03',
-    title: 'Construction',
-    text: 'Turnkey construction with our own crews, fixed estimates and clear deadlines at every stage.',
+    title: 'Напольные покрытия',
+    text: 'Укладка плитки, ламината, паркета и других напольных материалов.',
   },
   {
     number: '04',
-    title: 'Renovation',
-    text: 'Full and partial renovation of apartments, villas and offices with engineering systems included.',
+    title: 'Ванная и кухня',
+    text: 'Ремонт и отделка помещений с учётом особенностей влажных зон.',
   },
   {
     number: '05',
-    title: 'Technical supervision',
-    text: 'Independent quality control of works, materials and budget on sites built by other contractors.',
+    title: 'Электрика и освещение',
+    text: 'Монтаж розеток, выключателей, освещения и необходимых электрических систем.',
   },
   {
     number: '06',
-    title: 'Landscape',
-    text: 'Terraces, pools and gardens designed as one whole with the architecture of the house.',
+    title: 'Ремонт под ключ',
+    text: 'Берём на себя весь комплекс внутренних работ, чтобы вам не пришлось искать разных специалистов.',
   },
 ];
 
@@ -38,6 +38,7 @@ const Services = () => (
     <ul className={styles.grid}>
       {services.map((service) => (
         <li className={styles.card} key={service.number}>
+          <span className={styles.ghost} aria-hidden="true">{service.number}</span>
           <span className={styles.number}>{service.number}</span>
           <h3 className={styles.title}>{service.title}</h3>
           <p className={styles.text}>{service.text}</p>

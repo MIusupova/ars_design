@@ -43,19 +43,36 @@
 }
 
 .card {
+    @include surface;
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 36px 32px;
-    background: #131313;
-    border-left: 3px solid transparent;
+    overflow: hidden;
     font-family: $font-family;
-    transition: border-color 0.3s ease, background 0.3s ease;
+
+    // Зелёная полоса выезжает по левому краю под курсором.
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: $color-accent;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+    }
 
     &:hover {
-        border-left-color: #55b055;
-        background: #171717;
+        @include surface-hover;
+    }
+
+    &:hover::before {
+        transform: scaleY(1);
     }
 
     @include xl {
@@ -71,8 +88,32 @@
     }
 }
 
+// Крупная полупрозрачная цифра в углу — добавляет карточке глубину и ритм.
+.ghost {
+    position: absolute;
+    right: 14px;
+    top: -14px;
+    color: rgba(255, 255, 255, 0.045);
+    font-size: 110px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -4px;
+    pointer-events: none;
+    user-select: none;
+
+    @include lg {
+        font-size: 92px;
+    }
+    @include sm {
+        right: 10px;
+        top: -10px;
+        font-size: 72px;
+    }
+}
+
 .number {
-    color: #55b055;
+    position: relative;
+    color: $color-accent;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -87,8 +128,9 @@
 }
 
 .title {
+    position: relative;
     margin: 0;
-    color: #fff;
+    color: $color-text;
     font-size: 26px;
     font-weight: 700;
     line-height: 1.2;
@@ -108,8 +150,9 @@
 }
 
 .text {
+    position: relative;
     margin: 0;
-    color: #c9c9c9;
+    color: $color-text-muted;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.5;

@@ -5,11 +5,11 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { id: 'about', label: 'About us' },
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'services', label: 'Services' },
-  { id: 'contact', label: 'Contact us' },
-  { id: 'news', label: 'News' },
+  { id: 'about', label: 'О нас' },
+  { id: 'portfolio', label: 'Портфолио' },
+  { id: 'services', label: 'Услуги' },
+  { id: 'contact', label: 'Контакты' },
+  { id: 'news', label: 'Новости' },
 ];
 
 export const scrollToSection = (id: string): void => {

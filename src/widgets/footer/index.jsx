@@ -7,7 +7,7 @@ const Footer = () => (
     <div className={styles.inner}>
       <img className={styles.logo} src={logo} alt="ARS Design" />
 
-      <nav className={styles.nav} aria-label="Footer">
+      <nav className={styles.nav} aria-label="Навигация в подвале">
         <ul className={styles.list}>
           {navItems.map((item) => (
             <li key={item.id}>

@@ -42,19 +42,36 @@
 }
 
 .card {
+    @include surface;
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 14px;
     padding: 32px;
-    background: #131313;
-    border-bottom: 3px solid transparent;
+    overflow: hidden;
     font-family: $font-family;
-    transition: border-color 0.3s ease, background 0.3s ease;
+
+    // Зелёная полоса выезжает по нижнему краю под курсором.
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: $color-accent;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
 
     &:hover {
-        border-bottom-color: #55b055;
-        background: #171717;
+        @include surface-hover;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
     }
 
     @include xl {
@@ -72,6 +89,7 @@
 }
 
 .meta {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,7 +97,7 @@
 }
 
 .date {
-    color: #8f8f8f;
+    color: $color-text-dim;
     font-size: 16px;
     font-weight: 400;
 
@@ -92,7 +110,7 @@
 }
 
 .tag {
-    color: #55b055;
+    color: $color-accent;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -106,8 +124,9 @@
 }
 
 .title {
+    position: relative;
     margin: 0;
-    color: #fff;
+    color: $color-text;
     font-size: 24px;
     font-weight: 700;
     line-height: 1.25;
@@ -124,9 +143,10 @@
 }
 
 .text {
+    position: relative;
     margin: 0;
     flex-grow: 1;
-    color: #c9c9c9;
+    color: $color-text-muted;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
@@ -143,7 +163,8 @@
 }
 
 .more {
-    color: #55b055;
+    position: relative;
+    color: $color-accent;
     font-size: 16px;
     font-weight: 700;
 

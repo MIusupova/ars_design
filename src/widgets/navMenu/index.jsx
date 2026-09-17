@@ -60,12 +60,12 @@ const NavMenu = () => {
           type="button"
           className={styles.brand}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Back to top"
+          aria-label="Наверх"
         >
           <img className={styles.brandLogo} src={logo} alt="ARS Design" />
         </button>
 
-        <nav className={styles.nav} aria-label="Main">
+        <nav className={styles.nav} aria-label="Основная навигация">
           <ul className={styles.list}>
             {navItems.map((item) => (
               <li key={item.id}>
@@ -82,13 +82,17 @@ const NavMenu = () => {
           </ul>
         </nav>
 
-        <div className={styles.lang}>UA / RU / EN</div>
+        <div className={styles.lang}>
+          <span className={styles.langActive}>RU</span>
+          <span className={styles.langSep}>/</span>
+          <span>FR</span>
+        </div>
 
         <button
           type="button"
           className={`${styles.burger} ${open ? styles.burgerOpen : ''}`}
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
           aria-expanded={open}
         >
           <span className={styles.burgerLine} />
@@ -99,7 +103,7 @@ const NavMenu = () => {
 
       <nav
         className={`${styles.panel} ${open ? styles.panelOpen : ''}`}
-        aria-label="Mobile"
+        aria-label="Мобильная навигация"
         aria-hidden={!open}
       >
         <ul className={styles.panelList}>
@@ -116,7 +120,9 @@ const NavMenu = () => {
             </li>
           ))}
           <li>
-            <span className={styles.panelLang}>UA / RU / EN</span>
+            <span className={styles.panelLang}>
+              <span className={styles.langActive}>RU</span> / FR
+            </span>
           </li>
         </ul>
       </nav>

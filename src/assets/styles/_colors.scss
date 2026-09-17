@@ -1,0 +1,51 @@
+@use './radius' as *;
+
+// Система поверхностей.
+// Ключевое правило: чем ближе элемент к пользователю, тем он светлее.
+// Фон страницы — самый тёмный, карточки поверх него светлее, ховер ещё светлее.
+// Раньше было наоборот, из-за чего карточки выглядели провалами в фоне.
+
+$color-bg: #1c1c1c !default; // фон страницы
+$color-bg-deep: #121212 !default; // разделительные полосы, «утопленные» участки
+$color-surface: #272727 !default; // карточки
+$color-surface-hover: #303030 !default; // карточки под курсором
+
+$color-border: rgba(255, 255, 255, 0.08) !default;
+$color-border-strong: rgba(255, 255, 255, 0.14) !default;
+
+$color-text: #ffffff !default;
+$color-text-muted: #adadad !default;
+$color-text-dim: #8a8a8a !default;
+
+$color-accent: #55b055 !default;
+$color-accent-soft: rgba(85, 176, 85, 0.45) !default;
+
+$shadow-card: 0 2px 6px rgba(0, 0, 0, 0.3) !default;
+$shadow-card-hover: 0 16px 34px rgba(0, 0, 0, 0.5) !default;
+
+// Блик сверху имитирует свет, падающий на поверхность, — именно он
+// отличает «панель» от просто залитого прямоугольника.
+@mixin surface {
+    position: relative;
+    border-radius: $radius-md;
+    background-color: $color-surface;
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0) 120px
+    );
+    border: 1px solid $color-border;
+    box-shadow: $shadow-card;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+@mixin surface-hover {
+    transform: translateY(-4px);
+    background-color: $color-surface-hover;
+    border-color: $color-accent-soft;
+    box-shadow: $shadow-card-hover;
+}

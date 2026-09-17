@@ -26,7 +26,7 @@
     outline: none;
 
     &:focus-visible .viewport {
-        outline: 2px solid #55b055;
+        outline: 2px solid $color-accent;
         outline-offset: 4px;
     }
 }
@@ -34,7 +34,10 @@
 .viewport {
     position: relative;
     overflow: hidden;
-    background: #131313;
+    border-radius: $radius-lg;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
 }
 
 .track {
@@ -81,7 +84,7 @@
     flex-direction: column;
     gap: 6px;
     padding: 28px 40px;
-    background: linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, rgba(19, 19, 19, 0.9) 100%);
+    background: linear-gradient(180deg, rgba(12, 12, 12, 0) 0%, rgba(12, 12, 12, 0.92) 100%);
     font-family: $font-family;
     color: #fff;
 
@@ -116,7 +119,7 @@
 .slideMeta {
     font-size: 20px;
     font-weight: 400;
-    color: #55b055;
+    color: $color-accent;
 
     @include xl {
         font-size: 18px;
@@ -143,13 +146,15 @@
     height: 56px;
     padding: 0;
     border: none;
-    border-radius: 0;
-    background: rgba(19, 19, 19, 0.65);
+    border-radius: $radius-sm;
+    background: rgba(12, 12, 12, 0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     cursor: pointer;
     transition: background 0.3s ease;
 
     &:hover {
-        background: #55b055;
+        background: $color-accent;
     }
 
     @include lg {
@@ -167,11 +172,20 @@
 }
 
 .prev {
-    left: 0;
+    left: 16px;
 }
 
 .next {
-    right: 0;
+    right: 16px;
+}
+
+@media (max-width: 420px) {
+    .prev {
+        left: 8px;
+    }
+    .next {
+        right: 8px;
+    }
 }
 
 .navIcon {
@@ -216,13 +230,13 @@
     height: 4px;
     padding: 0;
     border: none;
-    border-radius: 0;
-    background: #3a3a3a;
+    border-radius: 2px;
+    background: #3f3f3f;
     cursor: pointer;
     transition: background 0.3s ease;
 
     &:hover {
-        background: #55b055;
+        background: $color-accent;
     }
 
     @include lg {
@@ -235,5 +249,5 @@
 }
 
 .dotActive {
-    background: #55b055;
+    background: $color-accent;
 }

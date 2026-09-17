@@ -2,9 +2,20 @@ import styles from './styles.module.scss';
 
 const AboutUs = () => (
   <div className={styles.wrapper}>
-    <p className={styles.aboutText}>
-      <span className={styles.accent}>ARS DESIGN</span> — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus ornare ex, nec euismod neque blandit eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed lobortis neque, a commodo nunc. Maecenas at rutrum justo. Ut ac leo neque.
-    </p>
+    <div className={styles.content}>
+      <p className={styles.lead}>
+        <span className={styles.accent}>ARS DESIGN</span> — мы создаём качественные
+        и продуманные интерьеры, уделяя внимание каждой детали.
+      </p>
+      <p className={styles.body}>
+        Наша команда выполняет внутренние ремонтные и отделочные работы для квартир, домов
+        и коммерческих помещений. Работаем аккуратно, соблюдаем сроки и стремимся
+        к результату, который будет радовать вас долгие годы.
+      </p>
+      <p className={styles.closing}>
+        Качество, точность и внимание к деталям — основа нашей работы.
+      </p>
+    </div>
   </div>
 );
 

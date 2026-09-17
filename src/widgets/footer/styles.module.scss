@@ -2,8 +2,8 @@
 
 .footer {
     width: 100%;
-    background: #131313;
-    border-top: 1px solid #262626;
+    background: $color-bg-deep;
+    border-top: 1px solid $color-border;
     font-family: $font-family;
 }
 
@@ -67,9 +67,9 @@
 .link {
     padding: 0;
     border: none;
-    border-radius: 0;
+    border-radius: $radius-sm;
     background: none;
-    color: #fff;
+    color: $color-text;
     font-family: inherit;
     font-size: 17px;
     font-weight: 400;
@@ -78,7 +78,7 @@
     transition: color 0.3s ease;
 
     &:hover {
-        color: #55b055;
+        color: $color-accent;
     }
 
     @include lg {
@@ -91,7 +91,7 @@
 
 .copy {
     margin: 0;
-    color: #8f8f8f;
+    color: $color-text-dim;
     text-align: center;
     font-size: 15px;
     font-weight: 400;

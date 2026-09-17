@@ -7,7 +7,7 @@
      по бокам страницы (max-width 1440px) появлялись белые поля. */
   color-scheme: dark;
   color: #ffffff;
-  background-color: #202020;
+  background-color: #1c1c1c;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +19,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #202020;
+  background-color: #1c1c1c;
 }
 
 a {

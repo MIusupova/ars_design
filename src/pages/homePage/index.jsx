@@ -16,27 +16,27 @@ const HomePage = () => (
     <Header/>
 
     <section id="about" className={styles.section}>
-      <RectangleInfo text="our story" text2=" // ABOUT US" />
+      <RectangleInfo text="наша история" text2=" // О НАС" />
       <AboutUs/>
     </section>
 
     <section id="portfolio" className={styles.section}>
-      <RectangleInfo text="our works" text2=" // PORTFOLIO" />
+      <RectangleInfo text="наши работы" text2=" // ПОРТФОЛИО" />
       <Portfolio/>
     </section>
 
     <section id="services" className={styles.section}>
-      <RectangleInfo text="what we do" text2=" // SERVICES" />
+      <RectangleInfo text="что мы делаем" text2=" // УСЛУГИ" />
       <Services/>
     </section>
 
     <section id="contact" className={styles.section}>
-      <RectangleInfo text="where to find us" text2=" // CONTACT US" />
+      <RectangleInfo text="где нас найти" text2=" // КОНТАКТЫ" />
       <ContactSection/>
     </section>
 
     <section id="news" className={styles.section}>
-      <RectangleInfo text="what's new" text2=" // NEWS" />
+      <RectangleInfo text="что нового" text2=" // НОВОСТИ" />
       <News/>
     </section>
 

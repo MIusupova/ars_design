@@ -5,8 +5,11 @@
     top: 0;
     z-index: 100;
     width: 100%;
-    background: #131313;
-    border-bottom: 1px solid #262626;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid $color-border;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
     font-family: $font-family;
 }
 
@@ -47,7 +50,7 @@
     margin-right: auto;
     padding: 0;
     border: none;
-    border-radius: 0;
+    border-radius: $radius-sm;
     background: none;
     cursor: pointer;
 }
@@ -97,7 +100,7 @@
     position: relative;
     padding: 6px 0;
     border: none;
-    border-radius: 0;
+    border-radius: $radius-sm;
     background: none;
     color: #fff;
     font-family: inherit;
@@ -146,8 +149,11 @@
 }
 
 .lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     flex-shrink: 0;
-    color: #fff;
+    color: $color-text-dim;
     font-size: 16px;
     font-weight: 400;
     white-space: nowrap;
@@ -160,6 +166,15 @@
     }
 }
 
+.langActive {
+    color: #fff;
+    font-weight: 700;
+}
+
+.langSep {
+    color: #4a4a4a;
+}
+
 .burger {
     display: none;
     flex-direction: column;
@@ -169,7 +184,7 @@
     height: 34px;
     padding: 0;
     border: none;
-    border-radius: 0;
+    border-radius: $radius-sm;
     background: none;
     cursor: pointer;
 
@@ -216,8 +231,8 @@
     display: none;
     overflow: hidden;
     max-height: 0;
-    background: #131313;
-    border-top: 1px solid #262626;
+    background: $color-bg-deep;
+    border-top: 1px solid $color-border;
     transition: max-height 0.3s ease;
 
     @include md {
@@ -248,7 +263,7 @@
     width: 100%;
     padding: 12px 0;
     border: none;
-    border-radius: 0;
+    border-radius: $radius-sm;
     background: none;
     color: #fff;
     font-family: inherit;
@@ -271,7 +286,7 @@
 .panelLang {
     display: block;
     padding: 14px 0 4px;
-    color: #8f8f8f;
+    color: $color-text-dim;
     font-size: 15px;
 
     @include sm {
