@@ -2,7 +2,12 @@
 
 .wrapper {
     z-index: 1;
-    background: black url('../../../public/images/header.webp') no-repeat center/cover;
+    background: black url('/images/header.webp') no-repeat center/cover;
+
+    // На узких экранах отдаём лёгкую версию — 11 КБ вместо 39 КБ.
+    @include md {
+        background-image: url('/images/header-mobile.webp');
+    }
 }
 
 .logo {

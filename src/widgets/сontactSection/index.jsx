@@ -40,7 +40,7 @@ const ContactSection = () => (
         />
         <input
           type="tel"
-          placeholder="+38 (0__) ___ __ __"
+          placeholder="+33 6 __ __ __ __"
           className={styles.input}
         />
         <button type="submit" className={styles.button}>
