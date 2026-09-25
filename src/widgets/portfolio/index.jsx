@@ -6,15 +6,10 @@ import ceilingMoldings from '../../assets/images/portfolio/ceiling-moldings.jpg'
 import marbleFloor from '../../assets/images/portfolio/marble-floor.jpg';
 import demolition from '../../assets/images/portfolio/demolition.jpg';
 import drywallCeiling from '../../assets/images/portfolio/drywall-ceiling.jpg';
-import project01 from '../../assets/images/portfolio/project-01.svg';
-import project02 from '../../assets/images/portfolio/project-02.svg';
-import project03 from '../../assets/images/portfolio/project-03.svg';
-import project04 from '../../assets/images/portfolio/project-04.svg';
-import project05 from '../../assets/images/portfolio/project-05.svg';
 import styles from './styles.module.scss';
 
-// Чтобы поставить реальные фото — положите их в src/assets/images/portfolio,
-// импортируйте выше и замените image в этом массиве.
+// Чтобы добавить фото — положите его в src/assets/images/portfolio,
+// импортируйте выше и добавьте слайд в этот массив.
 const slides = [
   { image: corridor, title: 'Коридор с лепниной', meta: 'Отделка стен и потолка' },
   { image: bathroom, title: 'Санузел под мрамор', meta: 'Облицовка крупноформатной плиткой' },
@@ -22,11 +17,6 @@ const slides = [
   { image: marbleFloor, title: 'Пол под мрамор', meta: 'Укладка керамогранита' },
   { image: demolition, title: 'Демонтаж', meta: 'Подготовка помещения к ремонту' },
   { image: drywallCeiling, title: 'Потолок из гипсокартона', meta: 'Монтаж и разводка электрики' },
-  { image: project01, title: 'Villa Azur', meta: 'Nice, France — 2024' },
-  { image: project02, title: 'Residence Vertical', meta: 'Monaco — 2024' },
-  { image: project03, title: 'Galerie Interieur', meta: 'Cannes, France — 2023' },
-  { image: project04, title: 'Facade Lumiere', meta: 'Antibes, France — 2023' },
-  { image: project05, title: 'Pavillon Mer', meta: 'Saint-Tropez, France — 2022' },
 ];
 
 const AUTOPLAY_DELAY = 6000;
