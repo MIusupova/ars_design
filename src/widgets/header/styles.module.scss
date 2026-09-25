@@ -8,6 +8,24 @@
     @include md {
         background-image: url('/images/header-mobile.webp');
     }
+
+    // Из-за фиксированных отступов герой на телефоне сжимался примерно
+    // до 240px, и фотография в нём не читалась. Задаём долю экрана и
+    // центрируем содержимое по вертикали.
+    // svh — «малая» высота вьюпорта: не скачет, когда прячется адресная
+    // строка браузера. vh оставлен запасным вариантом.
+    @include md {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 68vh;
+        min-height: 68svh;
+    }
+
+    @include sm {
+        min-height: 74vh;
+        min-height: 74svh;
+    }
 }
 
 .logo {
@@ -21,11 +39,11 @@
     @include lg {
         padding-top: 85px;
     }
+
+    // Ниже 780px вертикальное распределение берёт на себя flex у .wrapper,
+    // поэтому собственный отступ логотипу больше не нужен.
     @include md {
-        padding-top: 65px;
-    }
-    @include sm {
-        padding-top: 40px;
+        padding-top: 0;
     }
 }
 
