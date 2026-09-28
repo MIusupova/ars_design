@@ -1,12 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/homePage';
+import { LanguageProvider } from './shared/i18n/LanguageContext';
 
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-    </Routes>
+    <LanguageProvider>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </LanguageProvider>
   );
 }
 

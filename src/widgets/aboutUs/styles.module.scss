@@ -70,19 +70,19 @@
     display: block;
     margin-bottom: 18px;
     color: $color-accent;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
 
     @include lg {
         margin-bottom: 14px;
-        font-size: 14px;
+        font-size: 18px;
         letter-spacing: 3px;
     }
     @include sm {
         margin-bottom: 10px;
-        font-size: 12px;
+        font-size: 16px;
         letter-spacing: 2px;
     }
 }

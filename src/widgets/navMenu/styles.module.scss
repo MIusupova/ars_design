@@ -166,6 +166,25 @@
     }
 }
 
+.langOption,
+.langActive {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.langOption {
+    color: $color-text-dim;
+    font-weight: 400;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
 .langActive {
     color: #fff;
     font-weight: 700;
@@ -284,7 +303,9 @@
 }
 
 .panelLang {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     padding: 14px 0 4px;
     color: $color-text-dim;
     font-size: 15px;

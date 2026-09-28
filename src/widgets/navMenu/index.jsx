@@ -1,18 +1,46 @@
 import { useEffect, useRef, useState } from 'react';
 import logo from '../../assets/icons/logo.svg';
-import { navItems, scrollToSection } from '../../shared/config/navigation';
+import { navIds, scrollToSection } from '../../shared/config/navigation';
+import { useLanguage } from '../../shared/i18n/LanguageContext';
 import styles from './styles.module.scss';
 
+const LangSwitcher = ({ className }) => {
+  const { lang, setLang } = useLanguage();
+
+  return (
+    <div className={className}>
+      <button
+        type="button"
+        className={lang === 'fr' ? styles.langActive : styles.langOption}
+        onClick={() => setLang('fr')}
+        aria-current={lang === 'fr' ? 'true' : undefined}
+      >
+        FR
+      </button>
+      <span className={styles.langSep}>/</span>
+      <button
+        type="button"
+        className={lang === 'ru' ? styles.langActive : styles.langOption}
+        onClick={() => setLang('ru')}
+        aria-current={lang === 'ru' ? 'true' : undefined}
+      >
+        RU
+      </button>
+    </div>
+  );
+};
+
 const NavMenu = () => {
-  const [activeId, setActiveId] = useState(navItems[0].id);
+  const { t } = useLanguage();
+  const [activeId, setActiveId] = useState(navIds[0]);
   const [open, setOpen] = useState(false);
   const barRef = useRef(null);
 
   // Активный пункт: секция, пересекающая узкую полосу в середине экрана.
   // Так корректно подсвечиваются и высокие, и короткие секции.
   useEffect(() => {
-    const sections = navItems
-      .map(({ id }) => document.getElementById(id))
+    const sections = navIds
+      .map((id) => document.getElementById(id))
       .filter(Boolean);
 
     const observer = new IntersectionObserver(
@@ -60,39 +88,35 @@ const NavMenu = () => {
           type="button"
           className={styles.brand}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Наверх"
+          aria-label={t.navMenu.toTop}
         >
           <img className={styles.brandLogo} src={logo} alt="ARS Design" />
         </button>
 
-        <nav className={styles.nav} aria-label="Основная навигация">
+        <nav className={styles.nav} aria-label={t.navMenu.mainNavAria}>
           <ul className={styles.list}>
-            {navItems.map((item) => (
-              <li key={item.id}>
+            {navIds.map((id) => (
+              <li key={id}>
                 <button
                   type="button"
-                  className={`${styles.link} ${activeId === item.id ? styles.active : ''}`}
-                  onClick={() => handleClick(item.id)}
-                  aria-current={activeId === item.id ? 'true' : undefined}
+                  className={`${styles.link} ${activeId === id ? styles.active : ''}`}
+                  onClick={() => handleClick(id)}
+                  aria-current={activeId === id ? 'true' : undefined}
                 >
-                  {item.label}
+                  {t.nav[id]}
                 </button>
               </li>
             ))}
           </ul>
         </nav>
 
-        <div className={styles.lang}>
-          <span className={styles.langActive}>RU</span>
-          <span className={styles.langSep}>/</span>
-          <span>FR</span>
-        </div>
+        <LangSwitcher className={styles.lang} />
 
         <button
           type="button"
           className={`${styles.burger} ${open ? styles.burgerOpen : ''}`}
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
+          aria-label={open ? t.navMenu.closeMenu : t.navMenu.openMenu}
           aria-expanded={open}
         >
           <span className={styles.burgerLine} />
@@ -103,26 +127,24 @@ const NavMenu = () => {
 
       <nav
         className={`${styles.panel} ${open ? styles.panelOpen : ''}`}
-        aria-label="Мобильная навигация"
+        aria-label={t.navMenu.mobileNavAria}
         aria-hidden={!open}
       >
         <ul className={styles.panelList}>
-          {navItems.map((item) => (
-            <li key={item.id}>
+          {navIds.map((id) => (
+            <li key={id}>
               <button
                 type="button"
-                className={`${styles.panelLink} ${activeId === item.id ? styles.active : ''}`}
-                onClick={() => handleClick(item.id)}
+                className={`${styles.panelLink} ${activeId === id ? styles.active : ''}`}
+                onClick={() => handleClick(id)}
                 tabIndex={open ? 0 : -1}
               >
-                {item.label}
+                {t.nav[id]}
               </button>
             </li>
           ))}
           <li>
-            <span className={styles.panelLang}>
-              <span className={styles.langActive}>RU</span> / FR
-            </span>
+            <LangSwitcher className={styles.panelLang} />
           </li>
         </ul>
       </nav>

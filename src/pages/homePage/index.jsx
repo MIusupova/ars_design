@@ -2,46 +2,45 @@ import AboutUs from "../../widgets/aboutUs";
 import Footer from "../../widgets/footer";
 import Header from "../../widgets/header";
 import NavMenu from "../../widgets/navMenu";
-import News from "../../widgets/news";
 import Portfolio from "../../widgets/portfolio";
 import RectangleInfo from "../../widgets/restangleInfo";
 import Services from "../../widgets/services";
+import { useLanguage } from "../../shared/i18n/LanguageContext";
 import styles from './styles.module.scss';
 import ContactSection from "../../widgets/сontactSection";
 
 
-const HomePage = () => (
-  <div className={styles.wrapper}>
-    <NavMenu/>
-    <Header/>
+const HomePage = () => {
+  const { t } = useLanguage();
 
-    <section id="about" className={styles.section}>
-      <RectangleInfo text="наша история" text2=" // О НАС" />
-      <AboutUs/>
-    </section>
+  return (
+    <div className={styles.wrapper}>
+      <NavMenu/>
+      <Header/>
 
-    <section id="portfolio" className={styles.section}>
-      <RectangleInfo text="наши работы" text2=" // ПОРТФОЛИО" />
-      <Portfolio/>
-    </section>
+      <section id="about" className={styles.section}>
+        <RectangleInfo text={t.sections.about.eyebrow} text2={t.sections.about.label} />
+        <AboutUs/>
+      </section>
 
-    <section id="services" className={styles.section}>
-      <RectangleInfo text="что мы делаем" text2=" // УСЛУГИ" />
-      <Services/>
-    </section>
+      <section id="portfolio" className={styles.section}>
+        <RectangleInfo text={t.sections.portfolio.eyebrow} text2={t.sections.portfolio.label} />
+        <Portfolio/>
+      </section>
 
-    <section id="contact" className={styles.section}>
-      <RectangleInfo text="где нас найти" text2=" // КОНТАКТЫ" />
-      <ContactSection/>
-    </section>
+      <section id="services" className={styles.section}>
+        <RectangleInfo text={t.sections.services.eyebrow} text2={t.sections.services.label} />
+        <Services/>
+      </section>
 
-    <section id="news" className={styles.section}>
-      <RectangleInfo text="что нового" text2=" // НОВОСТИ" />
-      <News/>
-    </section>
+      <section id="contact" className={styles.section}>
+        <RectangleInfo text={t.sections.contact.eyebrow} text2={t.sections.contact.label} />
+        <ContactSection/>
+      </section>
 
-    <Footer/>
-  </div>
-);
+      <Footer/>
+    </div>
+  );
+};
 
 export default HomePage;

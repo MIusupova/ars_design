@@ -92,7 +92,7 @@
 .ghost {
     position: absolute;
     right: 14px;
-    top: -14px;
+    top: -4px;
     color: rgba(255, 255, 255, 0.045);
     font-size: 110px;
     font-weight: 700;
@@ -106,7 +106,6 @@
     }
     @include sm {
         right: 10px;
-        top: -10px;
         font-size: 72px;
     }
 }

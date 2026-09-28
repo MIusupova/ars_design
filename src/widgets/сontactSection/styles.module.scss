@@ -30,11 +30,11 @@
     align-items: flex-start;
     gap: 40px;
     font-family: $font-family;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
 
     @include xl {
-        font-size: 21px;
+        font-size: 18px;
         gap: 28px;
     }
     @include lg {
@@ -42,14 +42,14 @@
         align-items: center;
         max-width: 440px;
         gap: 24px;
-        font-size: 20px;
+        font-size: 18px;
     }
     @include md {
-        font-size: 18px;
+        font-size: 16px;
     }
     @include sm {
         gap: 18px;
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 
@@ -202,10 +202,10 @@
     }
     @include md {
         height: 44px;
-        font-size: 18px;
+        font-size: 16px;
     }
     @include sm {
         height: 36px;
-        font-size: 15px;
+        font-size: 12px;
     }
 }
