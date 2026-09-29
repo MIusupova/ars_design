@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import logo from '../../assets/icons/logo.svg';
 import subtract from '../../assets/icons/Subtract.svg';
 import { scrollToSection } from '../../shared/config/navigation';
@@ -6,13 +8,13 @@ import { useLanguage } from '../../shared/i18n/LanguageContext';
 import styles from './styles.module.scss';
 
 const Header = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.logo}>
-        <Link to="/">
-          <img className={styles.img} src={logo} alt="ARS DESIGN" />
+        <Link href={lang === 'ru' ? '/ru' : '/'}>
+          <img className={styles.img} src={logo.src} alt="ARS DESIGN" />
         </Link>
       </div>
       <div className={styles.title}>
@@ -27,7 +29,7 @@ const Header = () => {
           onClick={() => scrollToSection('about')}
           aria-label={t.header.scrollAria}
         >
-          <img className={styles.str} src={subtract} alt="" />
+          <img className={styles.str} src={subtract.src} alt="" />
         </button>
       </div>
     </div>

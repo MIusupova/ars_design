@@ -1,4 +1,4 @@
-@use '/src/assets/styles/main' as *;
+@use '../../assets/styles/main' as *;
 
 // Ширина колонок в ряду пропорциональна пропорциям фото (горизонтальное
 // 4:3 против вертикального 3:4 — это 1.78 : 1), поэтому при одинаковой
@@ -124,11 +124,15 @@ $gap: 14px;
     }
 }
 
-.image {
-    display: block;
+.slide {
+    position: relative;
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
+}
+
+.image {
+    display: block;
     object-fit: cover;
     user-select: none;
     -webkit-user-drag: none;

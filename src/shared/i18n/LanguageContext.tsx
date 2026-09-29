@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+'use client';
+
+import { createContext, useCallback, useContext, useLayoutEffect, useMemo } from 'react';
 import type { ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 import { translations } from './translations';
 import type { Lang, Translation } from './translations';
-
-const STORAGE_KEY = 'ars-design-lang';
-const DEFAULT_LANG: Lang = 'fr';
 
 type LanguageContextValue = {
   lang: Lang;
@@ -14,36 +14,26 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-const getInitialLang = (): Lang => {
-  if (typeof window === 'undefined') return DEFAULT_LANG;
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === 'ru' || stored === 'fr') return stored;
-  return DEFAULT_LANG;
-};
+export const LanguageProvider = ({ lang, children }: { lang: Lang; children: ReactNode }) => {
+  const router = useRouter();
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState<Lang>(getInitialLang);
-
-  useEffect(() => {
+  // Заголовок, description, canonical и hreflang теперь приходят с сервера
+  // (см. shared/i18n/metadata.ts) — здесь остаётся поправить только атрибут
+  // <html lang>, потому что он задан в корневом layout один раз для обоих
+  // языков (см. suppressHydrationWarning в app/layout.tsx).
+  useLayoutEffect(() => {
     document.documentElement.lang = lang;
-    window.localStorage.setItem(STORAGE_KEY, lang);
-
-    const t = translations[lang];
-    document.title = t.meta.title;
-
-    const setMeta = (selector: string, content: string) => {
-      const el = document.querySelector(selector);
-      if (el) el.setAttribute('content', content);
-    };
-
-    setMeta('meta[name="description"]', t.meta.description);
-    setMeta('meta[property="og:title"]', t.meta.title);
-    setMeta('meta[property="og:description"]', t.meta.ogDescription);
-    setMeta('meta[name="twitter:title"]', t.meta.title);
-    setMeta('meta[name="twitter:description"]', t.meta.ogDescription);
   }, [lang]);
 
-  const value = useMemo(() => ({ lang, setLang, t: translations[lang] }), [lang]);
+  const setLang = useCallback(
+    (next: Lang) => {
+      if (next === lang) return;
+      router.push(next === 'ru' ? '/ru' : '/');
+    },
+    [lang, router]
+  );
+
+  const value = useMemo(() => ({ lang, setLang, t: translations[lang] }), [lang, setLang]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };
