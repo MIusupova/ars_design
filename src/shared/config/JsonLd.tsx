@@ -11,7 +11,7 @@ export function JsonLd() {
     email: 'arsanakaev.fr@gmail.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '85 boulevard Gambetta',
+      streetAddress: '85 Boulevard Gambetta',
       addressLocality: 'Nice',
       postalCode: '06000',
       addressRegion: "Provence-Alpes-Côte d'Azur",

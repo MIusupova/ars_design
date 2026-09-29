@@ -17,7 +17,7 @@ const ContactSection = () => {
           <div className={styles.infoItem}>
             <div className={styles.infoItemContent}>
               <img className={styles.img} src={ContactAdress.src} alt={t.contact.addressAlt} />
-              <p className={styles.text}>Nice, bd. Gambetta st. 85</p>
+              <p className={styles.text}>Nice, Bd. Gambetta 85</p>
             </div>
           </div>
 

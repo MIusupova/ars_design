@@ -148,7 +148,7 @@ export const translations: Record<Lang, Translation> = {
     },
     footer: {
       navAria: 'Навигация в подвале',
-      copy: (year) => `© ${year} ARS DESIGN — Nice, bd. Gambetta st. 85`,
+      copy: (year) => `© ${year} ARS DESIGN — Nice, Bd. Gambetta 85`,
     },
     navMenu: {
       toTop: 'Наверх',
@@ -243,7 +243,7 @@ export const translations: Record<Lang, Translation> = {
     },
     footer: {
       navAria: 'Navigation du pied de page',
-      copy: (year) => `© ${year} ARS DESIGN — Nice, bd. Gambetta st. 85`,
+      copy: (year) => `© ${year} ARS DESIGN — Nice, Bd. Gambetta 85`,
     },
     navMenu: {
       toTop: 'Retour en haut',
