@@ -65,11 +65,11 @@ export type Translation = {
 export const translations: Record<Lang, Translation> = {
   ru: {
     meta: {
-      title: 'ARS DESIGN — архитектурно-строительная компания в Ницце',
+      title: 'ARS DESIGN — ремонт и отделка квартир и домов в Ницце',
       description:
-        'ARS DESIGN — архитектурно-строительная компания из Ниццы: архитектурное и интерьерное проектирование, строительство под ключ, ремонт и технический надзор на Лазурном берегу.',
+        'ARS DESIGN — компания по ремонту и отделке в Ницце: ремонт квартир и домов под ключ, отделка стен и потолков, напольные покрытия, ремонт ванных комнат и кухонь, электромонтаж на Лазурном берегу.',
       ogDescription:
-        'Архитектурное и интерьерное проектирование, строительство под ключ, ремонт и технический надзор на Лазурном берегу.',
+        'Ремонт и отделка квартир и домов под ключ на Лазурном берегу.',
     },
     nav: {
       about: 'О нас',
@@ -160,11 +160,11 @@ export const translations: Record<Lang, Translation> = {
   },
   fr: {
     meta: {
-      title: 'ARS DESIGN — Entreprise de rénovation et de construction à Nice',
+      title: 'ARS DESIGN — Entreprise de rénovation à Nice',
       description:
-        "ARS DESIGN, entreprise de rénovation et de construction basée à Nice, vous accompagne de la conception à la réalisation : architecture d'intérieur, construction clé en main, rénovation complète et suivi de chantier sur la Côte d'Azur.",
+        "ARS DESIGN, entreprise de rénovation basée à Nice : rénovation complète d'appartements et de maisons, plâtrerie et peinture, revêtements de sol, salle de bain et cuisine, électricité et suivi de chantier sur la Côte d'Azur.",
       ogDescription:
-        "Rénovation clé en main, architecture d'intérieur et suivi de chantier sur la Côte d'Azur.",
+        "Rénovation et finitions intérieures d'appartements et de maisons sur la Côte d'Azur.",
     },
     nav: {
       about: 'À propos',
