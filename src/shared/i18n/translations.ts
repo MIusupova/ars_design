@@ -16,6 +16,7 @@ export type Translation = {
     portfolio: string;
     services: string;
     contact: string;
+    blog: string;
   };
   header: {
     title: string;
@@ -49,6 +50,15 @@ export type Translation = {
     phonePlaceholder: string;
     submit: string;
   };
+  blog: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    label: string;
+    readMore: string;
+    back: string;
+    empty: string;
+  };
   footer: {
     navAria: string;
     copy: (year: number) => string;
@@ -76,6 +86,7 @@ export const translations: Record<Lang, Translation> = {
       portfolio: 'Портфолио',
       services: 'Услуги',
       contact: 'Контакты',
+      blog: 'Блог',
     },
     header: {
       title: 'Создаём пространство, в котором хочется жить',
@@ -146,6 +157,16 @@ export const translations: Record<Lang, Translation> = {
       phonePlaceholder: '+33 6 __ __ __ __',
       submit: 'ПЕРЕЗВОНИТЕ',
     },
+    blog: {
+      metaTitle: 'Блог — советы по ремонту | ARS DESIGN',
+      metaDescription:
+        'Блог ARS DESIGN: практические советы по ремонту и отделке квартир и домов на Лазурном берегу.',
+      eyebrow: 'советы и идеи',
+      label: ' // БЛОГ',
+      readMore: 'Читать статью',
+      back: 'Назад в блог',
+      empty: 'Статьи скоро появятся.',
+    },
     footer: {
       navAria: 'Навигация в подвале',
       copy: (year) => `© ${year} ARS DESIGN — Nice, Bd. Gambetta 85`,
@@ -171,6 +192,7 @@ export const translations: Record<Lang, Translation> = {
       portfolio: 'Réalisations',
       services: 'Prestations',
       contact: 'Contact',
+      blog: 'Blog',
     },
     header: {
       title: "Nous donnons vie à vos projets de rénovation",
@@ -240,6 +262,16 @@ export const translations: Record<Lang, Translation> = {
       namePlaceholder: 'Nom',
       phonePlaceholder: '+33 6 __ __ __ __',
       submit: 'ÊTRE RAPPELÉ',
+    },
+    blog: {
+      metaTitle: 'Blog — conseils de rénovation | ARS DESIGN',
+      metaDescription:
+        'Le blog d’ARS DESIGN : conseils pratiques pour la rénovation et la décoration d’appartements et de maisons sur la Côte d’Azur.',
+      eyebrow: 'conseils et idées',
+      label: ' // BLOG',
+      readMore: 'Lire l’article',
+      back: 'Retour au blog',
+      empty: 'Les articles arrivent bientôt.',
     },
     footer: {
       navAria: 'Navigation du pied de page',

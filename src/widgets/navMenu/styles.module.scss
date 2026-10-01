@@ -98,6 +98,8 @@
 
 .link {
     position: relative;
+    display: inline-block;
+    text-decoration: none;
     padding: 6px 0;
     border: none;
     border-radius: $radius-sm;
@@ -264,7 +266,7 @@
 }
 
 .panelOpen {
-    max-height: 420px;
+    max-height: 480px;
 }
 
 .panelList {
@@ -279,6 +281,8 @@
 
 .panelLink {
     display: block;
+    box-sizing: border-box;
+    text-decoration: none;
     width: 100%;
     padding: 12px 0;
     border: none;

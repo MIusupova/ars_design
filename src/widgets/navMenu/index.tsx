@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import logo from '../../assets/icons/logo.svg';
 import { navIds, scrollToSection } from '../../shared/config/navigation';
 import { useLanguage } from '../../shared/i18n/LanguageContext';
@@ -33,15 +34,24 @@ const LangSwitcher = ({ className }: { className?: string }) => {
   );
 };
 
-const NavMenu = () => {
-  const { t } = useLanguage();
-  const [activeId, setActiveId] = useState(navIds[0]);
+type NavMenuProps = {
+  // На главной пункты прокручивают страницу; на странице блога ведут на главную.
+  page?: 'home' | 'blog';
+};
+
+const NavMenu = ({ page = 'home' }: NavMenuProps) => {
+  const { t, lang } = useLanguage();
+  const home = lang === 'ru' ? '/ru' : '';
+  const blogHref = `${home}/blog`;
+  const isHome = page === 'home';
+  const [activeId, setActiveId] = useState<(typeof navIds)[number] | null>(isHome ? navIds[0] : null);
   const [open, setOpen] = useState(false);
   const barRef = useRef<HTMLElement>(null);
 
   // Активный пункт: секция, пересекающая узкую полосу в середине экрана.
   // Так корректно подсвечиваются и высокие, и короткие секции.
   useEffect(() => {
+    if (!isHome) return;
     const sections = navIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -57,7 +67,7 @@ const NavMenu = () => {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   // Бургер: закрываем по Escape и по клику вне панели.
   useEffect(() => {
@@ -87,29 +97,50 @@ const NavMenu = () => {
   return (
     <header className={styles.bar} ref={barRef}>
       <div className={styles.inner}>
-        <button
-          type="button"
-          className={styles.brand}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label={t.navMenu.toTop}
-        >
-          <img className={styles.brandLogo} src={logo.src} alt="ARS Design" />
-        </button>
+        {isHome ? (
+          <button
+            type="button"
+            className={styles.brand}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label={t.navMenu.toTop}
+          >
+            <img className={styles.brandLogo} src={logo.src} alt="ARS Design" />
+          </button>
+        ) : (
+          <Link className={styles.brand} href={home || '/'} aria-label="ARS Design">
+            <img className={styles.brandLogo} src={logo.src} alt="ARS Design" />
+          </Link>
+        )}
 
         <nav className={styles.nav} aria-label={t.navMenu.mainNavAria}>
           <ul className={styles.list}>
             {navIds.map((id) => (
               <li key={id}>
-                <button
-                  type="button"
-                  className={`${styles.link} ${activeId === id ? styles.active : ''}`}
-                  onClick={() => handleClick(id)}
-                  aria-current={activeId === id ? 'true' : undefined}
-                >
-                  {t.nav[id]}
-                </button>
+                {isHome ? (
+                  <button
+                    type="button"
+                    className={`${styles.link} ${activeId === id ? styles.active : ''}`}
+                    onClick={() => handleClick(id)}
+                    aria-current={activeId === id ? 'true' : undefined}
+                  >
+                    {t.nav[id]}
+                  </button>
+                ) : (
+                  <Link className={styles.link} href={`${home}/#${id}`}>
+                    {t.nav[id]}
+                  </Link>
+                )}
               </li>
             ))}
+            <li>
+              <Link
+                className={`${styles.link} ${page === 'blog' ? styles.active : ''}`}
+                href={blogHref}
+                aria-current={page === 'blog' ? 'page' : undefined}
+              >
+                {t.nav.blog}
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -136,16 +167,31 @@ const NavMenu = () => {
         <ul className={styles.panelList}>
           {navIds.map((id) => (
             <li key={id}>
-              <button
-                type="button"
-                className={`${styles.panelLink} ${activeId === id ? styles.active : ''}`}
-                onClick={() => handleClick(id)}
-                tabIndex={open ? 0 : -1}
-              >
-                {t.nav[id]}
-              </button>
+              {isHome ? (
+                <button
+                  type="button"
+                  className={`${styles.panelLink} ${activeId === id ? styles.active : ''}`}
+                  onClick={() => handleClick(id)}
+                  tabIndex={open ? 0 : -1}
+                >
+                  {t.nav[id]}
+                </button>
+              ) : (
+                <Link className={styles.panelLink} href={`${home}/#${id}`} tabIndex={open ? 0 : -1}>
+                  {t.nav[id]}
+                </Link>
+              )}
             </li>
           ))}
+          <li>
+            <Link
+              className={`${styles.panelLink} ${page === 'blog' ? styles.active : ''}`}
+              href={blogHref}
+              tabIndex={open ? 0 : -1}
+            >
+              {t.nav.blog}
+            </Link>
+          </li>
           <li>
             <LangSwitcher className={styles.panelLang} />
           </li>

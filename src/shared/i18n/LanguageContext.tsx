@@ -14,7 +14,14 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-export const LanguageProvider = ({ lang, children }: { lang: Lang; children: ReactNode }) => {
+type LanguageProviderProps = {
+  lang: Lang;
+  // Куда вести переключатель языка; по умолчанию — на главную нужного языка.
+  paths?: Record<Lang, string>;
+  children: ReactNode;
+};
+
+export const LanguageProvider = ({ lang, paths, children }: LanguageProviderProps) => {
   const router = useRouter();
 
   // Заголовок, description, canonical и hreflang теперь приходят с сервера
@@ -28,9 +35,9 @@ export const LanguageProvider = ({ lang, children }: { lang: Lang; children: Rea
   const setLang = useCallback(
     (next: Lang) => {
       if (next === lang) return;
-      router.push(next === 'ru' ? '/ru' : '/');
+      router.push(paths?.[next] ?? (next === 'ru' ? '/ru' : '/'));
     },
-    [lang, router]
+    [lang, paths, router]
   );
 
   const value = useMemo(() => ({ lang, setLang, t: translations[lang] }), [lang, setLang]);
