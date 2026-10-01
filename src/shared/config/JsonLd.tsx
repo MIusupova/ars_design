@@ -5,7 +5,7 @@ export function JsonLd() {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
     name: 'ARS DESIGN',
-    image: `${SITE_URL}/og-image.jpg`,
+    image: `${SITE_URL}/og-image.jpg?v=2`,
     url: SITE_URL,
     telephone: '+33749566614',
     email: 'arsanakaev.fr@gmail.com',

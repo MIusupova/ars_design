@@ -26,13 +26,13 @@ export function buildMetadata(lang: Lang): Metadata {
       title: t.title,
       description: t.ogDescription,
       url,
-      images: [{ url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og-image.jpg?v=2`, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t.title,
       description: t.ogDescription,
-      images: [`${SITE_URL}/og-image.jpg`],
+      images: [`${SITE_URL}/og-image.jpg?v=2`],
     },
   };
 }
@@ -43,7 +43,7 @@ type PageMeta = { title: string; description: string; path: Record<Lang, string>
 
 function buildPageMetadata({ title, description, path, lang, article, image }: PageMeta): Metadata {
   const url = `${SITE_URL}${path[lang]}`;
-  const images = [{ url: image ?? `${SITE_URL}/og-image.jpg`, width: 1200, height: 630 }];
+  const images = [{ url: image ?? `${SITE_URL}/og-image.jpg?v=2`, width: 1200, height: 630 }];
 
   return {
     title,
