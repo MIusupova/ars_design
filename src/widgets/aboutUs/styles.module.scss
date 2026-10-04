@@ -86,8 +86,8 @@
 .eyebrow {
     display: block;
     margin-bottom: 22px;
-    color: $color-accent;
-    font-size: 15px;
+    @include accent-text;
+    font-size: 30px;
     font-weight: 700;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -99,7 +99,7 @@
         height: 2px;
         margin-right: 16px;
         vertical-align: middle;
-        background: $color-accent;
+        background: $gradient-accent;
     }
 
     @include sm {
@@ -186,7 +186,7 @@
 .num {
     display: block;
     margin-bottom: 8px;
-    color: $color-accent;
+    @include accent-text;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;

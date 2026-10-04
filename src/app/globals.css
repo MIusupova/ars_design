@@ -1,5 +1,5 @@
 :root {
-  font-family: var(--font-poppins), "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-poppins), "Poppins", var(--font-cyrillic), "Montserrat", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -29,7 +29,7 @@ a {
 }
 
 a:hover {
-  color: #55b055;
+  color: #2e8b4e;
 }
 
 button {
@@ -37,6 +37,6 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid #55b055;
+  outline: 2px solid #2e8b4e;
   outline-offset: 2px;
 }

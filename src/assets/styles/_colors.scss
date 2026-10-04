@@ -17,14 +17,30 @@ $color-text: #ffffff !default;
 $color-text-muted: #adadad !default;
 $color-text-dim: #8a8a8a !default;
 
-$color-accent: #55b055 !default;
-$color-accent-soft: rgba(85, 176, 85, 0.45) !default;
+$color-accent: #2e8b4e !default;
+$color-accent-light: #5ee283 !default; // hover текста и светлый край градиента
+$color-accent-deep: #25844a !default; // тёмный край градиента
+
+// Тёмный зелёный градиент: насыщенный лес → глубокий изумруд: заливки (кнопки, линии, точки)
+$gradient-accent: linear-gradient(135deg, #4a9d5f 0%, #2e7d46 50%, #1b5a33 100%) !default;
+$gradient-accent-hover: linear-gradient(135deg, #5db574 0%, #379156 50%, #226b3d 100%) !default;
+$color-accent-soft: rgba(46, 139, 78, 0.45) !default;
 
 $shadow-card: 0 2px 6px rgba(0, 0, 0, 0.3) !default;
 $shadow-card-hover: 0 16px 34px rgba(0, 0, 0, 0.5) !default;
 
 // Блик сверху имитирует свет, падающий на поверхность, — именно он
 // отличает «панель» от просто залитого прямоугольника.
+// Градиентный текст-акцент (цифры, подписи). Для статичных элементов:
+// на hover-переходах цвета градиент не анимируется.
+@mixin accent-text {
+    color: $color-accent;
+    background-image: $gradient-accent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @mixin surface {
     position: relative;
     border-radius: $radius-md;

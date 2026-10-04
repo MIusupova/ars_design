@@ -18,23 +18,23 @@
     display: flex;
     align-items: center;
     gap: 24px;
-    height: 72px;
+    height: 82px;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 40px;
 
     @include xl {
-        height: 64px;
+        height: 70px;
         gap: 18px;
         padding: 0 32px;
     }
     @include lg {
-        height: 60px;
+        height: 58px;
         gap: 14px;
         padding: 0 24px;
     }
     @include md {
-        height: 56px;
+        height: 58px;
         padding: 0 20px;
     }
     @include sm {
@@ -126,14 +126,14 @@
         right: 0;
         bottom: 0;
         height: 2px;
-        background: #55b055;
+        background: $gradient-accent;
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.3s ease;
     }
 
     &:hover {
-        color: #55b055;
+        color: $color-accent-light;
     }
 
     &:hover::after {
@@ -142,7 +142,7 @@
 }
 
 .active {
-    color: #55b055;
+    color: $color-accent-light;
 }
 
 // Подчёркивание — только у ссылок в баре; в бургер-панели у .panelLink нет ::after.
@@ -297,7 +297,7 @@
     transition: color 0.3s ease;
 
     &:hover {
-        color: #55b055;
+        color: $color-accent-light;
     }
 
     @include sm {

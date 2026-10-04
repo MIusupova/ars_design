@@ -109,7 +109,7 @@
 .more {
     margin-top: auto;
     padding-top: 8px;
-    color: $color-accent;
+    @include accent-text;
     font-size: 15px;
 }
 

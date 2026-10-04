@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import './globals.css';
-import { poppins } from '../shared/config/fonts';
+import { montserratCyrillic, poppins } from '../shared/config/fonts';
 import { JsonLd } from '../shared/config/JsonLd';
 import { SITE_URL } from '../shared/config/site';
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr" suppressHydrationWarning className={poppins.variable}>
+    <html lang="fr" suppressHydrationWarning className={`${poppins.variable} ${montserratCyrillic.variable}`}>
       <body>
         {children}
         <JsonLd />

@@ -20,8 +20,8 @@
         flex-direction: column;
         justify-content: center;
         padding: 0;
-        min-height: 70vh;
-        min-height: 70svh;
+        min-height: 84vh;
+        min-height: 84svh;
     }
 }
 
@@ -46,20 +46,20 @@
 
 .img {
     display: block;
-    width: 232px;
+    width: 280px;
     height: auto;
 
     @include xl {
-        width: 200px;
+        width: 280px;
     }
     @include lg {
-        width: 170px;
+        width: 220px;
     }
     @include md {
-        width: 140px;
+        width: 180px;
     }
     @include sm {
-        width: 110px;
+        width: 140px;
     }
 }
 
