@@ -8,22 +8,30 @@ const AboutUs = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.grid}>
+      <div className={styles.media}>
+        <video
+          className={styles.video}
+          src="/video/about-interior.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className={styles.fade} />
+      </div>
+
+      <div className={styles.content}>
         <div className={styles.textCol}>
           <span className={styles.eyebrow}>ARS DESIGN</span>
           <p className={styles.lead}>{t.aboutUs.lead}</p>
-          <p className={styles.body}>{t.aboutUs.body}</p>
         </div>
 
-        <aside className={styles.principles}>
-          <ul className={styles.principleList}>
-            {t.aboutUs.principles.map((item) => (
-              <li className={styles.principle} key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </aside>
+        <div className={styles.side}>
+          <p className={styles.body}>{t.aboutUs.body}</p>
+          
+        </div>
       </div>
     </div>
   );

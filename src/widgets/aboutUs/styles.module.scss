@@ -2,221 +2,207 @@
 
 .wrapper {
     width: 100%;
-    max-width: 1440px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 116px 40px 85px;
+    padding-bottom: 90px;
+    font-family: $font-family;
 
-    @include xl {
-        padding: 80px 32px 60px;
-    }
     @include lg {
-        padding: 60px 24px 50px;
-    }
-    @include md {
-        padding: 48px 20px 40px;
+        padding-bottom: 30px;
     }
     @include sm {
-        padding: 32px 16px 28px;
+        padding-bottom: 40px;
     }
 }
 
-.grid {
+// Видео на всю ширину экрана, от края до края.
+.media {
+    position: relative;
+    width: 100%;
+    height: 78vh;
+    min-height: 460px;
+    max-height: 860px;
+    overflow: hidden;
+
+    // На телефоне блок по форме кадра: высокий бокс обрезал бы
+    // горизонтальное видео по бокам и оставлял только середину.
+    @include md {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+.video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // Чёрно-белое видео с небольшим контрастом, чтобы кадр не выглядел плоским.
+    filter: grayscale(1) contrast(1.08);
+}
+
+// Низ кадра плавно уходит в фон страницы, чтобы текст ложился на него без шва.
+.fade {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 45%;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(28, 28, 28, 0) 0%, $color-bg 100%);
+
+    // На телефоне кадр показываем целиком, без наложения текста.
+    @include md {
+        height: 18%;
+    }
+}
+
+.content {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-    align-items: start;
-    gap: 70px;
-    max-width: 1180px;
-    margin: 0 auto;
-    font-family: $font-family;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 80px;
+    box-sizing: border-box;
+    max-width: 1280px;
+    margin: -140px auto 0;
+    padding: 0 40px;
 
     @include xl {
-        gap: 48px;
+        gap: 52px;
+        padding: 0 32px;
     }
     @include lg {
         grid-template-columns: 1fr;
-        gap: 32px;
-    }
-    @include sm {
         gap: 24px;
+        margin-top: -90px;
+        padding: 0 24px;
     }
-}
-
-// Зелёная линия слева задаёт колонке ось и держит текст,
-// вместо того чтобы он висел в пустоте по центру.
-.textCol {
-    position: relative;
-    padding-left: 34px;
-
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 6px;
-        bottom: 6px;
-        width: 3px;
-        background: linear-gradient(180deg, $color-accent 0%, rgba(85, 176, 85, 0) 100%);
-    }
-
-    @include lg {
-        padding-left: 26px;
+    @include md {
+        margin-top: 8px;
+        padding: 0 20px;
     }
     @include sm {
-        padding-left: 18px;
+        padding: 0 16px;
     }
 }
 
 .eyebrow {
     display: block;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
     color: $color-accent;
-    font-size: 24px;
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     text-transform: uppercase;
 
-    @include lg {
-        margin-bottom: 14px;
-        font-size: 18px;
-        letter-spacing: 3px;
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 44px;
+        height: 2px;
+        margin-right: 16px;
+        vertical-align: middle;
+        background: $color-accent;
     }
+
     @include sm {
-        margin-bottom: 10px;
-        font-size: 16px;
-        letter-spacing: 2px;
+        margin-bottom: 14px;
+        font-size: 12px;
+        letter-spacing: 3px;
+
+        &::before {
+            width: 28px;
+            margin-right: 10px;
+        }
     }
 }
 
 .lead {
-    margin: 0 0 24px;
+    margin: 0;
     color: $color-text;
-    font-size: 34px;
-    font-weight: 400;
-    line-height: 1.35;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 
     @include xl {
-        font-size: 29px;
-    }
-    @include lg {
-        margin-bottom: 18px;
-        font-size: 25px;
+        font-size: 36px;
     }
     @include md {
-        font-size: 22px;
+        font-size: 28px;
     }
     @include sm {
-        margin-bottom: 14px;
-        font-size: 18px;
+        font-size: 23px;
+    }
+}
+
+.side {
+    padding-top: 40px;
+
+    @include lg {
+        padding-top: 0;
     }
 }
 
 .body {
-    margin: 0;
+    margin: 0 0 32px;
     color: $color-text-muted;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.75;
 
-    @include xl {
-        font-size: 18px;
-    }
-    @include lg {
-        font-size: 17px;
-    }
     @include md {
         font-size: 16px;
     }
     @include sm {
+        margin-bottom: 22px;
         font-size: 14px;
-        line-height: 1.6;
+        line-height: 1.65;
     }
 }
 
 .principles {
-    @include surface;
-
-    box-sizing: border-box;
-    padding: 30px 32px;
-
-    @include xl {
-        padding: 26px 26px;
-    }
-    @include sm {
-        padding: 20px 18px;
-    }
-}
-
-.principlesCaption {
-    display: block;
-    margin-bottom: 20px;
-    color: $color-text-dim;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    @include lg {
-        margin-bottom: 16px;
-        font-size: 13px;
-    }
-    @include sm {
-        margin-bottom: 12px;
-        font-size: 11px;
-        letter-spacing: 1px;
-    }
-}
-
-.principleList {
-    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin: 0;
     padding: 0;
+    list-style: none;
+    border-top: 1px solid $color-border-strong;
+
+    @include sm {
+        grid-template-columns: 1fr;
+    }
 }
 
 .principle {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 0;
-    color: $color-text;
-    font-size: 21px;
+    padding: 20px 16px 0 0;
+
+    @include sm {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid $color-border;
+    }
+}
+
+.num {
+    display: block;
+    margin-bottom: 8px;
+    color: $color-accent;
+    font-size: 13px;
     font-weight: 700;
-    line-height: 1.25;
-    border-top: 1px solid $color-border;
+    letter-spacing: 2px;
 
-    &:first-child {
-        border-top: none;
-        padding-top: 0;
+    @include sm {
+        margin: 0;
     }
+}
 
-    &:last-child {
-        padding-bottom: 0;
-    }
-
-    // Зелёный маркер-квадрат вместо маркера списка.
-    &::before {
-        content: '';
-        flex-shrink: 0;
-        width: 9px;
-        height: 9px;
-        background: $color-accent;
-    }
+.name {
+    color: $color-text;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
 
     @include xl {
-        font-size: 19px;
-        padding: 14px 0;
-    }
-    @include lg {
-        font-size: 18px;
-        gap: 12px;
-    }
-    @include sm {
-        gap: 10px;
-        padding: 11px 0;
-        font-size: 15px;
-
-        &::before {
-            width: 7px;
-            height: 7px;
-        }
+        font-size: 16px;
     }
 }
