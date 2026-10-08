@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Montserrat } from 'next/font/google';
+import { Montserrat, Quicksand } from 'next/font/google';
 
 export const poppins = localFont({
   src: [
@@ -17,5 +17,13 @@ export const montserratCyrillic = Montserrat({
   subsets: ['cyrillic'],
   weight: ['400', '700'],
   variable: '--font-cyrillic',
+  display: 'swap',
+});
+
+// Округлый шрифт только для названия «ARS DESIGN» на главном экране.
+export const quicksand = Quicksand({
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-quicksand',
   display: 'swap',
 });

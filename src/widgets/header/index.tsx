@@ -1,30 +1,22 @@
 'use client';
 
-import Link from 'next/link';
-import logo from '../../assets/icons/logoDark.svg';
 import { scrollToSection } from '../../shared/config/navigation';
 import { useLanguage } from '../../shared/i18n/LanguageContext';
 import styles from './styles.module.scss';
 
-const Header = () => {
-  const { t, lang } = useLanguage();
+const TITLE = 'ARS DESIGN';
 
-  // Ссылка показывается в двух местах: рядом с текстом на десктопе
-  // и отдельным блоком под видео на телефоне. Какой из них виден, решает CSS.
-  const cta = (
-    <button type="button" className={styles.cta} onClick={() => scrollToSection('contact')}>
-      <span>{t.header.cta}</span>
-      <span className={styles.ctaArrow} aria-hidden="true">→</span>
-    </button>
-  );
+const Header = () => {
+  const { t } = useLanguage();
+  const words = t.header.title.split(' ');
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.media}>
         <video
           className={styles.video}
-          src="/video/about-interior.mp4"
-          poster="/images/header.webp"
+          src="/video/hero.mp4"
+          poster="/images/hero-poster.jpg"
           autoPlay
           muted
           loop
@@ -33,20 +25,33 @@ const Header = () => {
           aria-hidden="true"
         />
         <div className={styles.veil} />
+        <div className={styles.fade} />
       </div>
 
-      <div className={styles.card}>
-        <Link href={lang === 'ru' ? '/ru' : '/'} className={styles.logo}>
-          <img className={styles.logoImg} src={logo.src} alt="ARS DESIGN" />
-        </Link>
-        <div className={styles.text}>
-          <h1 className={styles.company}>{t.header.title}</h1>
-          <p className={styles.subtitle}>{t.header.subtitle}</p>
-          <div className={styles.contactsInline}>{cta}</div>
+      <div className={styles.content}>
+        <div className={styles.row}>
+          <p className={styles.lead} aria-label={t.header.title}>
+            {words.map((word, i) => (
+              <span key={i} className={styles.word} aria-hidden="true" style={{ animationDelay: `${0.9 + i * 0.07}s` }}>
+                {word}&nbsp;
+              </span>
+            ))}
+          </p>
+          <button type="button" className={styles.cta} onClick={() => scrollToSection('contact')}>
+            <span>{t.header.cta}</span>
+            <span className={styles.ctaIcon} aria-hidden="true">↗</span>
+          </button>
         </div>
+        <h1 className={styles.company} aria-label={TITLE}>
+          {TITLE.split('').map((ch, i) => (
+            <span key={i} className={styles.mask} aria-hidden="true">
+              <span className={styles.letter} style={{ animationDelay: `${0.15 + i * 0.07}s` }}>
+                {ch === ' ' ? '\u00a0' : ch}
+              </span>
+            </span>
+          ))}
+        </h1>
       </div>
-
-      <div className={styles.contacts}>{cta}</div>
     </div>
   );
 };
