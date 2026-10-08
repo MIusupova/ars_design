@@ -25,6 +25,7 @@
     }
     @include md {
         gap: 22px;
+        min-height: calc(100vh - 58px);
         min-height: calc(100svh - 58px);
         padding: 0 0 30px;
     }
@@ -56,7 +57,10 @@
         gap: 14px;
         padding: 0 24px;
     }
+    // На телефоне блок занимает остаток экрана под видео, текст по центру.
     @include md {
+        flex: 1 1 auto;
+        align-content: center;
         padding: 0 20px;
     }
     @include sm {
@@ -185,9 +189,11 @@
         min-height: 620px;
     }
 
-    // На телефоне весь герой помещается в экран: видео занимает остаток высоты.
+    // На телефоне видео в родной форме 16:9, чтобы был виден весь кадр, а не только центр.
     @include md {
-        min-height: 180px;
+        flex: none;
+        min-height: 0;
+        aspect-ratio: 16 / 9;
     }
 }
 
