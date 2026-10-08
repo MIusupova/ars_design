@@ -25,14 +25,14 @@
     }
     @include md {
         gap: 22px;
-        min-height: calc(100vh - 58px);
-        min-height: calc(100svh - 58px);
-        padding: 0 0 30px;
+        min-height: calc(100vh - 58px - 62px);
+        min-height: calc(100svh - 58px - 62px);
+        padding: 0 0 28px;
     }
-    @include sm {
+    @media (max-width: 480px) {
         gap: 18px;
-        min-height: calc(100svh - 52px);
-        padding: 0 0 26px;
+        min-height: calc(100svh - 52px - 48px);
+        padding: 0 0 24px;
     }
 }
 
@@ -57,13 +57,10 @@
         gap: 14px;
         padding: 0 24px;
     }
-    // На телефоне блок занимает остаток экрана под видео, текст по центру.
     @include md {
-        flex: 1 1 auto;
-        align-content: center;
         padding: 0 20px;
     }
-    @include sm {
+    @media (max-width: 480px) {
         gap: 18px;
         padding: 0 16px;
     }
@@ -112,8 +109,8 @@
     @include lg {
         height: 76px;
     }
-    @include sm {
-        height: 58px;
+    @media (max-width: 480px) {
+        height: 76px;
     }
 }
 
@@ -149,8 +146,8 @@
         font-size: 28px;
         letter-spacing: -0.5px;
     }
-    @include sm {
-        font-size: 23px;
+    @media (max-width: 480px) {
+        font-size: 28px;
     }
 }
 
@@ -168,8 +165,8 @@
     @include md {
         font-size: 16px;
     }
-    @include sm {
-        font-size: 14px;
+    @media (max-width: 480px) {
+        font-size: 16px;
     }
 }
 
@@ -191,9 +188,15 @@
 
     // На телефоне видео в родной форме 16:9, чтобы был виден весь кадр, а не только центр.
     @include md {
-        flex: none;
+        flex: 1 0 auto;
         min-height: 0;
         aspect-ratio: 16 / 9;
+    }
+
+    // На узких телефонах (меньше 420px) кадр 16:9 слишком низкий: делаем
+    // квадратным, края обрезаются, зато видео занимает заметную часть экрана.
+    @include sm {
+        aspect-ratio: 1 / 1;
     }
 }
 
@@ -205,6 +208,11 @@
     height: 100%;
     object-fit: cover;
     object-position: center 68%;
+
+    // Кадр на телефоне узкий и высокий: держим в поле зрения рабочего слева.
+    @include md {
+        object-position: 20% 68%;
+    }
 }
 
 // Лёгкая светлая вуаль: кадр остаётся цветным и выразительным, но мягче на белой странице.
