@@ -21,6 +21,7 @@ export type Translation = {
   header: {
     title: string;
     subtitle: string;
+    cta: string;
     scrollAria: string;
   };
   sections: {
@@ -91,6 +92,7 @@ export const translations: Record<Lang, Translation> = {
     header: {
       title: 'Создаём пространство, в котором хочется жить',
       subtitle: 'Ремонт и отделка квартир и домов',
+      cta: 'Обсудить проект',
       scrollAria: 'Перейти к разделу «О нас»',
     },
     sections: {
@@ -197,6 +199,7 @@ export const translations: Record<Lang, Translation> = {
     header: {
       title: "Nous donnons vie à vos projets de rénovation",
       subtitle: "Rénovation et aménagement d'appartements et de maisons",
+      cta: 'Parler de votre projet',
       scrollAria: 'Aller à la section « À propos »',
     },
     sections: {
