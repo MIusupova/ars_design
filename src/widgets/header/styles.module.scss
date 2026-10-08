@@ -25,11 +25,12 @@
     }
     @include md {
         gap: 22px;
-        min-height: 0;
+        min-height: calc(100svh - 58px);
         padding: 0 0 30px;
     }
     @include sm {
         gap: 18px;
+        min-height: calc(100svh - 52px);
         padding: 0 0 26px;
     }
 }
@@ -184,10 +185,9 @@
         min-height: 620px;
     }
 
+    // На телефоне весь герой помещается в экран: видео занимает остаток высоты.
     @include md {
-        flex: none;
-        min-height: 0;
-        aspect-ratio: 16 / 10;
+        min-height: 180px;
     }
 }
 
