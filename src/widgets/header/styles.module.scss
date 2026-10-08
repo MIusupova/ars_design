@@ -1,196 +1,210 @@
 @use '../../assets/styles/main' as *;
 
+// Белый герой: заголовок сверху, под ним видео во всю ширину экрана.
+// Сверху и снизу у видео остаётся белое поле, оно не заполняет блок целиком.
 .wrapper {
-    z-index: 1;
-    // Одна картинка на все экраны: облегчённая 1000px-версия на телефонах
-    // с плотностью 3x выглядела мыльной, а разница в весе всего ~28 КБ.
-    // Лёгкий тёмный градиент поверх фото — подстраховка, чтобы белый текст
-    // и логотип оставались читаемыми даже на светлых участках фото.
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), black url('/images/header.webp') no-repeat center/cover;
-    padding: 32px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: calc(100vh - 82px);
+    min-height: calc(100svh - 82px);
+    padding: 0 0 44px;
+    background: $color-bg;
+    font-family: $font-family;
 
-    // Из-за фиксированных отступов герой на телефоне сжимался примерно
-    // до 240px, и фотография в нём не читалась. Задаём долю экрана и
-    // центрируем содержимое по вертикали. Больше половины экрана не берём,
-    // чтобы фото не растягивалось сильнее, чем нужно.
-    // svh — «малая» высота вьюпорта: не скачет, когда прячется адресная
-    // строка браузера. vh оставлен запасным вариантом.
+    @include xl {
+        gap: 32px;
+        min-height: calc(100svh - 70px);
+        padding: 0 0 36px;
+    }
+    @include lg {
+        gap: 26px;
+        min-height: calc(100svh - 58px);
+        padding: 0 0 32px;
+    }
     @include md {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0;
-        min-height: 84vh;
-        min-height: 84svh;
+        gap: 22px;
+        min-height: 0;
+        padding: 0 0 30px;
+    }
+    @include sm {
+        gap: 18px;
+        padding: 0 0 26px;
+    }
+}
+
+// Блок под видео: логотип, линия и текст в один ряд.
+.card {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 56px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    @include xl {
+        gap: 40px;
+        padding: 0 32px;
+    }
+    @include lg {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 0 24px;
+    }
+    @include md {
+        padding: 0 20px;
+    }
+    @include sm {
+        gap: 18px;
+        padding: 0 16px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
     }
 }
 
 .logo {
-    display: flex;
-    justify-content: center;
-    padding-top: 140px;
+    display: block;
+    padding-right: 56px;
+    border-right: 1px solid $color-border-strong;
 
     @include xl {
-        padding-top: 110px;
+        padding-right: 40px;
     }
     @include lg {
-        padding-top: 85px;
+        padding: 0;
+        border-right: none;
     }
-
-    // Ниже 780px вертикальное распределение берёт на себя flex у .wrapper,
-    // поэтому собственный отступ логотипу больше не нужен.
     @include md {
-        padding-top: 0;
+        justify-self: center;
     }
 }
 
-.img {
+.logoImg {
     display: block;
-    width: 280px;
-    height: auto;
+    width: auto;
+    height: 130px;
 
     @include xl {
-        width: 280px;
+        height: 112px;
     }
     @include lg {
-        width: 220px;
-    }
-    @include md {
-        width: 180px;
+        height: 76px;
     }
     @include sm {
-        width: 140px;
+        height: 58px;
     }
 }
 
-.title {
-    min-height: 254px;
+.text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin-top: 64px;
-    padding: 0 20px;
+    gap: 26px;
+    min-width: 0;
+
+    @include md {
+        gap: 18px;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.company {
+    margin: 0;
+    color: $color-text;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-wrap: balance;
 
     @include xl {
-        min-height: 200px;
-        margin-top: 48px;
+        font-size: 40px;
     }
     @include lg {
-        min-height: 150px;
-        gap: 12px;
-        margin-top: 38px;
+        font-size: 34px;
     }
     @include md {
-        min-height: 110px;
-        gap: 8px;
-        margin-top: 35px;
+        font-size: 28px;
+        letter-spacing: -0.5px;
     }
     @include sm {
-        min-height: 70px;
-        gap: 6px;
-        margin-top: 35px;
-        padding: 0 16px;
+        font-size: 23px;
     }
 }
 
 .subtitle {
+    box-sizing: border-box;
     margin: 0;
-    color: rgba(255, 255, 255, 0.85);
-    text-align: center;
-    font-family: $font-family;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.3;
+    max-width: min(40ch, 100%);
+    color: $color-text-muted;
+    font-size: 20px;
+    line-height: 1.45;
 
     @include xl {
-        font-size: 20px;
-    }
-    @include lg {
         font-size: 18px;
     }
     @include md {
         font-size: 16px;
     }
     @include sm {
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
-.company {
-    margin: 0;
-    color: #FFF;
-    text-align: center;
-    font-family: $font-family;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
-
-    @include xl {
-        font-size: 40px;
-    }
-    @include lg {
-        font-size: 30px;
-    }
-    @include md {
-        font-size: 24px;
-    }
-    @include sm {
-        font-size: 16px;
-    }
-}
-
-.arrowWrapper {
-    display: flex;
-    justify-content: center;
-    padding: 121px 0;
-
-    @include xl {
-        padding: 90px 0;
-    }
-    @include lg {
-        padding: 65px 0;
-    }
-    @include md {
-        padding: 45px 0;
-    }
-    @include sm {
-        padding: 26px 0;
-    }
-}
-
-.arrowButton {
-    display: flex;
-    padding: 8px;
-    border: none;
-    border-radius: $radius-sm;
-    background: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-
-    &:hover {
-        transform: translateY(4px);
-    }
-}
-
-.str {
+// Видео от левого до правого края экрана, сверху и снизу белое поле.
+.media {
     position: relative;
-    z-index: 10;
-    display: block;
-    width: 61px;
-    height: auto;
+    flex: 1 1 0;
+    width: 100%;
+    min-height: 240px;
+    overflow: hidden;
 
-    @include xl {
-        width: 52px;
+    // На больших экранах видео выше, чтобы не выглядеть полоской.
+    @media (min-width: 1201px) {
+        min-height: 480px;
     }
-    @include lg {
-        width: 44px;
+    @media (min-width: 1600px) {
+        min-height: 620px;
     }
+
     @include md {
-        width: 36px;
+        flex: none;
+        min-height: 0;
+        aspect-ratio: 16 / 10;
     }
-    @include sm {
-        width: 26px;
-    }
+}
+
+.video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 68%;
+}
+
+// Лёгкая светлая вуаль: кадр остаётся цветным и выразительным, но мягче на белой странице.
+.veil {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.30);
 }

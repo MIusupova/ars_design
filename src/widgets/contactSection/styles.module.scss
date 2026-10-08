@@ -84,7 +84,7 @@
     height: 52px;
     display: flex;
     align-items: center;
-    color: #FFF;
+    color: $color-text;
 
     @include xl {
         height: 48px;
@@ -132,9 +132,9 @@
     height: 52px;
     padding: 0 17px;
     border-radius: $radius-sm;
-    background: #f4f4f4;
-    border: 1px solid transparent;
-    color: #1c1c1c;
+    background: #f7f2ea;
+    border: 1px solid $color-border-strong;
+    color: #231c17;
     font-family: $font-family;
     font-size: 24px;
     font-weight: 400;
@@ -144,7 +144,7 @@
     &:focus {
         outline: none;
         border-color: $color-accent;
-        box-shadow: 0 0 0 3px rgba(46, 139, 78, 0.25);
+        box-shadow: 0 0 0 3px rgba(138, 90, 60, 0.25);
     }
 
     @include xl {
@@ -163,7 +163,7 @@
 }
 
 .input::placeholder {
-    color: #8a8a8a;
+    color: #75685f;
 }
 
 .button {
@@ -184,7 +184,7 @@
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 1px;
-    box-shadow: 0 6px 18px rgba(46, 139, 78, 0.28);
+    box-shadow: 0 6px 18px rgba(138, 90, 60, 0.28);
     transition: background-position 0.5s ease, background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
@@ -192,12 +192,12 @@
         background-size: 160% 100%;
         background-position: 100% 0;
         transform: translateY(-2px);
-        box-shadow: 0 12px 26px rgba(46, 139, 78, 0.38);
+        box-shadow: 0 12px 26px rgba(138, 90, 60, 0.38);
     }
 
     &:active {
         transform: translateY(0);
-        box-shadow: 0 4px 12px rgba(46, 139, 78, 0.3);
+        box-shadow: 0 4px 12px rgba(138, 90, 60, 0.3);
     }
 
     @include xl {

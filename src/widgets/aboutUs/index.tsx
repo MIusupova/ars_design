@@ -9,16 +9,8 @@ const AboutUs = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.media}>
-        <video
-          className={styles.video}
-          src="/video/about-interior.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
+        <img className={styles.photo} src="/images/header.webp" alt="" />
+        <div className={styles.veil} />
         <div className={styles.fade} />
       </div>
 

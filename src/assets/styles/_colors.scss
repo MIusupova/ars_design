@@ -1,33 +1,32 @@
 @use './radius' as *;
 
-// Система поверхностей.
-// Ключевое правило: чем ближе элемент к пользователю, тем он светлее.
-// Фон страницы — самый тёмный, карточки поверх него светлее, ховер ещё светлее.
-// Раньше было наоборот, из-за чего карточки выглядели провалами в фоне.
+// Светлая тема: белый фон страницы, карточки и разделительные полосы
+// чуть темнее и отделяются тонкой рамкой.
 
-$color-bg: #1c1c1c !default; // фон страницы
-$color-bg-deep: #121212 !default; // разделительные полосы, «утопленные» участки
-$color-surface: #272727 !default; // карточки
-$color-surface-hover: #303030 !default; // карточки под курсором
+$color-bg: #ffffff !default; // фон страницы
+$color-bg-deep: #f5f0e8 !default; // разделительные полосы, «утопленные» участки
+$color-surface: #f9f6f1 !default; // карточки
+$color-surface-hover: #f2ebe0 !default; // карточки под курсором
 
-$color-border: rgba(255, 255, 255, 0.08) !default;
-$color-border-strong: rgba(255, 255, 255, 0.14) !default;
+$color-border: rgba(70, 48, 30, 0.12) !default;
+$color-border-strong: rgba(70, 48, 30, 0.2) !default;
 
-$color-text: #ffffff !default;
-$color-text-muted: #adadad !default;
-$color-text-dim: #8a8a8a !default;
+$color-text: #231c17 !default;
+$color-text-muted: #5c514a !default;
+$color-text-dim: #75685f !default;
 
-$color-accent: #2e8b4e !default;
-$color-accent-light: #5ee283 !default; // hover текста и светлый край градиента
-$color-accent-deep: #25844a !default; // тёмный край градиента
+$color-accent: #8a5a3c !default;
+$color-accent-light: #d9b48a !default; // светлый акцент для элементов поверх фото
+$color-accent-hover: #5a3820 !default; // hover текста на белом фоне
+$color-accent-deep: #6b4128 !default; // тёмный край градиента
 
-// Тёмный зелёный градиент: насыщенный лес → глубокий изумруд: заливки (кнопки, линии, точки)
-$gradient-accent: linear-gradient(135deg, #4a9d5f 0%, #2e7d46 50%, #1b5a33 100%) !default;
-$gradient-accent-hover: linear-gradient(135deg, #5db574 0%, #379156 50%, #226b3d 100%) !default;
-$color-accent-soft: rgba(46, 139, 78, 0.45) !default;
+// Коричневый градиент: тёплая карамель → глубокий шоколад: заливки (кнопки, линии, точки)
+$gradient-accent: linear-gradient(135deg, #a8774f 0%, #8a5a3c 50%, #6b4128 100%) !default;
+$gradient-accent-hover: linear-gradient(135deg, #b98760 0%, #9a6846 50%, #774a2e 100%) !default;
+$color-accent-soft: rgba(138, 90, 60, 0.45) !default;
 
-$shadow-card: 0 2px 6px rgba(0, 0, 0, 0.3) !default;
-$shadow-card-hover: 0 16px 34px rgba(0, 0, 0, 0.5) !default;
+$shadow-card: 0 1px 3px rgba(60, 40, 25, 0.08) !default;
+$shadow-card-hover: 0 16px 34px rgba(60, 40, 25, 0.14) !default;
 
 // Блик сверху имитирует свет, падающий на поверхность, — именно он
 // отличает «панель» от просто залитого прямоугольника.
@@ -47,7 +46,7 @@ $shadow-card-hover: 0 16px 34px rgba(0, 0, 0, 0.5) !default;
     background-color: $color-surface;
     background-image: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.9) 0%,
         rgba(255, 255, 255, 0) 120px
     );
     border: 1px solid $color-border;

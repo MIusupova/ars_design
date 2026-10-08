@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import logo from '../../assets/icons/logo.svg';
+import logo from '../../assets/icons/logoDark.svg';
 import { navIds, scrollToSection } from '../../shared/config/navigation';
 import { useLanguage } from '../../shared/i18n/LanguageContext';
 import styles from './styles.module.scss';

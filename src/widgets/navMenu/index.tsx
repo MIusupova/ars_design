@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import logo from '../../assets/icons/logo.svg';
+import logo from '../../assets/icons/logoDark.svg';
 import { navIds, scrollToSection } from '../../shared/config/navigation';
 import { useLanguage } from '../../shared/i18n/LanguageContext';
 import type { Lang } from '../../shared/i18n/translations';
