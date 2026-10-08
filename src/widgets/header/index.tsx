@@ -39,7 +39,11 @@ const Header = () => {
           </p>
           <button type="button" className={styles.cta} onClick={() => scrollToSection('contact')}>
             <span>{t.header.cta}</span>
-            <span className={styles.ctaIcon} aria-hidden="true">↗</span>
+            <span className={styles.ctaIcon} aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17L17 7M8 7h9v9" />
+              </svg>
+            </span>
           </button>
         </div>
         <h1 className={styles.company} aria-label={TITLE}>

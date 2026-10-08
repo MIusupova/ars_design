@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Montserrat, Quicksand } from 'next/font/google';
+import { Montserrat, Cormorant_Garamond } from 'next/font/google';
 
 export const poppins = localFont({
   src: [
@@ -20,10 +20,10 @@ export const montserratCyrillic = Montserrat({
   display: 'swap',
 });
 
-// Округлый шрифт только для названия «ARS DESIGN» на главном экране.
-export const quicksand = Quicksand({
+// Изящный антиквенный шрифт только для названия «ARS DESIGN» на главном экране.
+export const wordmark = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['700'],
-  variable: '--font-quicksand',
+  weight: ['600'],
+  variable: '--font-wordmark',
   display: 'swap',
 });

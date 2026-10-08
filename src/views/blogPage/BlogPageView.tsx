@@ -16,7 +16,7 @@ const BlogPageView = () => {
   return (
     <div className={styles.wrapper}>
       <NavMenu page="blog" />
-      <RectangleInfo text={t.blog.eyebrow} text2={t.blog.label} />
+      <RectangleInfo text={t.blog.label} />
 
       <main className={styles.main}>
         {posts.length === 0 ? (

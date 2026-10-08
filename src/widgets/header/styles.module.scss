@@ -111,10 +111,10 @@
         padding: 8px 24px 0;
     }
     @include md {
-        padding: 8px 20px 0;
+        padding: 20px 20px 0;
     }
     @include sm {
-        padding: 6px 16px 0;
+        padding: 10px 16px 0;
     }
 }
 
@@ -234,13 +234,21 @@
     border-radius: 50%;
     background: $gradient-accent;
     color: #fff;
-    font-size: 20px;
     transition: transform 0.4s ease;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
 
     @include lg {
         width: 36px;
         height: 36px;
-        font-size: 17px;
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -253,11 +261,11 @@
 .company {
     display: flex;
     margin: 0 0 -0.04em;
-    font-family: var(--font-quicksand), 'Quicksand', $font-family;
-    font-size: min(13.8vw, 220px);
-    font-weight: 700;
+    font-family: var(--font-wordmark), 'Cormorant Garamond', Georgia, serif;
+    font-size: min(14.5vw, 232px);
+    font-weight: 600;
     line-height: 0.92;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
     white-space: nowrap;
     user-select: none;
 

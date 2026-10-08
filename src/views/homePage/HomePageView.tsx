@@ -20,22 +20,22 @@ const HomePageView = () => {
       <Header />
 
       <section id="about" className={styles.section}>
-        <RectangleInfo text={t.sections.about.eyebrow} text2={t.sections.about.label} />
+        <RectangleInfo text={t.sections.about.label} />
         <AboutUs />
       </section>
 
       <section id="portfolio" className={styles.section}>
-        <RectangleInfo text={t.sections.portfolio.eyebrow} text2={t.sections.portfolio.label} />
+        <RectangleInfo text={t.sections.portfolio.label} />
         <Portfolio />
       </section>
 
       <section id="services" className={styles.section}>
-        <RectangleInfo text={t.sections.services.eyebrow} text2={t.sections.services.label} />
+        <RectangleInfo text={t.sections.services.label} />
         <Services />
       </section>
 
       <section id="contact" className={styles.section}>
-        <RectangleInfo text={t.sections.contact.eyebrow} text2={t.sections.contact.label} />
+        <RectangleInfo text={t.sections.contact.label} />
         <ContactSection />
       </section>
 

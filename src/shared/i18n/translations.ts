@@ -96,10 +96,10 @@ export const translations: Record<Lang, Translation> = {
       scrollAria: 'Перейти к разделу «О нас»',
     },
     sections: {
-      about: { eyebrow: 'наша история', label: ' // О НАС' },
-      portfolio: { eyebrow: 'наши работы', label: ' // ПОРТФОЛИО' },
-      services: { eyebrow: 'что мы делаем', label: ' // УСЛУГИ' },
-      contact: { eyebrow: 'где нас найти', label: ' // КОНТАКТЫ' },
+      about: { eyebrow: 'наша история', label: 'О НАС' },
+      portfolio: { eyebrow: 'наши работы', label: 'ПОРТФОЛИО' },
+      services: { eyebrow: 'что мы делаем', label: 'УСЛУГИ' },
+      contact: { eyebrow: 'где нас найти', label: 'КОНТАКТЫ' },
     },
     aboutUs: {
       lead: 'Мы создаём качественные и продуманные интерьеры, уделяя внимание каждой детали.',
@@ -164,7 +164,7 @@ export const translations: Record<Lang, Translation> = {
       metaDescription:
         'Блог ARS DESIGN: практические советы по ремонту и отделке квартир и домов на Лазурном берегу.',
       eyebrow: 'советы и идеи',
-      label: ' // БЛОГ',
+      label: 'БЛОГ',
       readMore: 'Читать статью',
       back: 'Назад в блог',
       empty: 'Статьи скоро появятся.',
@@ -203,10 +203,10 @@ export const translations: Record<Lang, Translation> = {
       scrollAria: 'Aller à la section « À propos »',
     },
     sections: {
-      about: { eyebrow: 'notre savoir-faire', label: ' // À PROPOS' },
-      portfolio: { eyebrow: 'nos chantiers', label: ' // RÉALISATIONS' },
-      services: { eyebrow: 'nos prestations', label: ' // SERVICES' },
-      contact: { eyebrow: 'nous contacter', label: ' // CONTACT' },
+      about: { eyebrow: 'notre savoir-faire', label: 'À PROPOS' },
+      portfolio: { eyebrow: 'nos chantiers', label: 'RÉALISATIONS' },
+      services: { eyebrow: 'nos prestations', label: 'SERVICES' },
+      contact: { eyebrow: 'nous contacter', label: 'CONTACT' },
     },
     aboutUs: {
       lead: 'Nous concevons des intérieurs soignés, en apportant un soin particulier à chaque détail.',
@@ -271,7 +271,7 @@ export const translations: Record<Lang, Translation> = {
       metaDescription:
         'Le blog d’ARS DESIGN : conseils pratiques pour la rénovation et la décoration d’appartements et de maisons sur la Côte d’Azur.',
       eyebrow: 'conseils et idées',
-      label: ' // BLOG',
+      label: 'BLOG',
       readMore: 'Lire l’article',
       back: 'Retour au blog',
       empty: 'Les articles arrivent bientôt.',

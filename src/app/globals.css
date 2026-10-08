@@ -1,5 +1,5 @@
 :root {
-  font-family: var(--font-poppins), "Poppins", var(--font-cyrillic), "Montserrat", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "poppins", "Poppins", "Montserrat", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
